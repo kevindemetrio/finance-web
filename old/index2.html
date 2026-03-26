@@ -184,8 +184,6 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .mock-inv-item .name{font-size:12px;font-weight:600}
 .mock-inv-item .isin{font-size:9px;color:var(--text-muted)}
 .mock-inv-item .contribs{font-size:10px;color:var(--text-soft);margin-top:4px}
-.mock-pdf-inner{background:white;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.05);padding:24px 20px;position:relative}
-.mock-pdf-inner::after{content:'PDF';position:absolute;top:10px;right:10px;font-size:9px;font-weight:700;color:white;background:var(--red);padding:2px 6px;border-radius:4px}
 .mock-pdf{background:white;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,0.08);padding:24px 20px;max-width:280px;margin:0 auto;position:relative}
 .mock-pdf::after{content:'PDF';position:absolute;top:10px;right:10px;font-size:9px;font-weight:700;color:white;background:var(--red);padding:2px 6px;border-radius:4px}
 .mock-pdf-title{text-align:center;margin-bottom:18px}
@@ -201,7 +199,6 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .mock-pdf-table th{text-align:left;font-weight:700;color:var(--text-muted);padding:4px 0;text-transform:uppercase;letter-spacing:0.05em;border-bottom:1px solid #f0ede8}
 .mock-pdf-table td{padding:5px 0;color:var(--text-soft)}
 .mock-pdf-table td:last-child{text-align:right;font-weight:600}
-.mock-pdf-footer{font-size:8px;color:var(--text-muted);text-align:center;margin-top:14px;padding-top:8px;border-top:1px solid #f0ede8}
 
 /* Seasons strip */
 .seasons-strip-section{background:var(--sand)}
@@ -222,24 +219,22 @@ nav .container{display:flex;align-items:center;justify-content:space-between}
 .price-card .popular{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--green);color:white;font-size:11px;font-weight:700;padding:5px 16px;border-radius:100px;letter-spacing:0.05em;text-transform:uppercase}
 .price-card h3{font-family:'Outfit',sans-serif;font-size:18px;font-weight:700;margin-bottom:4px}
 .price-card .desc{font-size:13px;color:var(--text-muted);margin-bottom:16px}
-.price-card .price{font-family:'Fraunces',serif;font-size:44px;color:var(--text);margin-bottom:4px;font-weight:500;display:flex;align-items:baseline;justify-content:center;gap:2px;flex-wrap:wrap;min-height:56px}
+.price-card .price{font-family:'Fraunces',serif;font-size:44px;color:var(--text);margin-bottom:4px;font-weight:500}
 .price-card .price span{font-family:'Outfit',sans-serif;font-size:15px;color:var(--text-muted);font-weight:400}
-.price-card .price #proPrice,.price-card .price #famPrice{font-family:'Fraunces',serif;font-size:44px;font-weight:500;color:var(--text)}
 .price-card .pnote{font-size:12px;color:var(--text-muted);margin-bottom:24px}
 .price-card ul{list-style:none;text-align:left;margin-bottom:28px}
 .price-card li{font-size:14px;color:var(--text-soft);padding:9px 0;display:flex;align-items:flex-start;gap:10px;border-bottom:1px solid #f5f2ed}
 .price-card li:last-child{border:none}
 .price-card li svg{flex-shrink:0;margin-top:2px}
 .price-card .btn{width:100%;justify-content:center}
-.billing-toggle{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:28px;margin-bottom:-4px}
-.billing-toggle span{font-size:14px;font-weight:500;color:var(--text-muted);transition:color 0.3s,font-weight 0.3s}
+.billing-toggle{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:24px;margin-bottom:-8px}
+.billing-toggle span{font-size:14px;font-weight:500;color:var(--text-muted);transition:color 0.3s}
 .billing-toggle span.active{color:var(--text);font-weight:600}
-.toggle-track{width:48px;height:26px;border-radius:13px;background:var(--border);cursor:pointer;position:relative;transition:background 0.3s;flex-shrink:0}
+.toggle-track{width:48px;height:26px;border-radius:13px;background:var(--border);cursor:pointer;position:relative;transition:background 0.3s}
 .toggle-track.annual{background:var(--green)}
 .toggle-knob{width:20px;height:20px;border-radius:50%;background:white;position:absolute;top:3px;left:3px;transition:transform 0.3s cubic-bezier(0.23,1,0.32,1);box-shadow:0 1px 4px rgba(0,0,0,0.15)}
 .toggle-track.annual .toggle-knob{transform:translateX(22px)}
-.billing-save{font-size:11px;font-weight:700;color:var(--green-dark);background:var(--green-light);padding:4px 12px;border-radius:100px;opacity:0;transform:translateX(-8px);transition:opacity 0.3s ease,transform 0.3s ease;pointer-events:none}
-.billing-save.show{opacity:1;transform:translateX(0)}
+.billing-save{font-size:11px;font-weight:700;color:var(--green-dark);background:var(--green-light);padding:3px 10px;border-radius:100px;margin-left:2px}
 .price-card .old-price{font-size:15px;color:var(--text-muted);text-decoration:line-through;margin-right:6px;font-family:'Outfit',sans-serif;font-weight:400}
 
 /* FAQ */
@@ -333,7 +328,7 @@ footer a:hover{color:var(--green)}
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contacto</a></li>
     </ul>
-    <a href="https://finance-app-umber-seven.vercel.app/auth/login" target="_blank" class="nav-cta nav-cta-desktop">Empezar gratis</a>
+    <a href="#pricing" class="nav-cta nav-cta-desktop">Empezar gratis</a>
     <button class="hamburger" onclick="toggleMenu()" aria-label="Menú"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
@@ -342,7 +337,7 @@ footer a:hover{color:var(--green)}
     <a href="#pricing" onclick="closeMenu()">Precios</a>
     <a href="#faq" onclick="closeMenu()">FAQ</a>
     <a href="#contact" onclick="closeMenu()">Contacto</a>
-    <a href="https://finance-app-umber-seven.vercel.app/auth/login" target="_blank" class="nav-cta" onclick="closeMenu()">Empezar gratis</a>
+    <a href="#pricing" class="nav-cta" onclick="closeMenu()">Empezar gratis</a>
   </div>
 </nav>
 
@@ -357,7 +352,7 @@ footer a:hover{color:var(--green)}
       <h1>Controla tu dinero, <em>sin drama</em></h1>
       <p class="hero-desc">Ingresos, gastos, ahorros e inversiones — todo organizado mes a mes. Una interfaz limpia, rápida y pensada para tu día a día real.</p>
       <div class="hero-actions">
-        <a href="https://finance-app-umber-seven.vercel.app/auth/login" target="_blank" class="btn btn-primary">Empezar gratis <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="#pricing" class="btn btn-primary">Empezar gratis <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         <a href="#features" class="btn btn-ghost">Descubre cómo</a>
       </div>
       <div class="hero-trust">
@@ -535,21 +530,15 @@ footer a:hover{color:var(--green)}
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>100% client-side — cero datos enviados</li>
         </ul>
       </div>
-      <div class="gui-mockup">
-        <div class="gui-titlebar"><div class="gui-dot" style="background:#ff5f57"></div><div class="gui-dot" style="background:#ffbd2e"></div><div class="gui-dot" style="background:#27c93f"></div><span class="title">Informe PDF — Marzo 2026</span></div>
-        <div class="gui-body">
-          <div class="mock-pdf-inner">
-            <div class="mock-pdf-title"><h4>Informe Financiero</h4><p>Marzo 2026 · Generado 26/03/2026</p></div>
-            <div class="mock-pdf-bar"><span class="lbl">Ingresos</span><div class="track"><div class="fill" style="width:100%;background:var(--green)"></div></div><span class="val" style="color:var(--green)">3.200 €</span></div>
-            <div class="mock-pdf-bar"><span class="lbl">G. fijos</span><div class="track"><div class="fill" style="width:29%;background:var(--amber)"></div></div><span class="val" style="color:var(--amber)">920 €</span></div>
-            <div class="mock-pdf-bar"><span class="lbl">Variables</span><div class="track"><div class="fill" style="width:15%;background:var(--red)"></div></div><span class="val" style="color:var(--red)">485 €</span></div>
-            <div class="mock-pdf-bar"><span class="lbl">Ahorros</span><div class="track"><div class="fill" style="width:20%;background:var(--blue)"></div></div><span class="val" style="color:var(--blue)">650 €</span></div>
-            <div class="mock-pdf-sep"></div>
-            <table class="mock-pdf-table"><tr><th>Categoría</th><th>Gastado</th><th>Límite</th><th>Estado</th></tr><tr><td>Alimentación</td><td>187 €</td><td>250 €</td><td style="color:var(--green)">✓ OK</td></tr><tr><td>Ocio</td><td>145 €</td><td>120 €</td><td style="color:var(--red)">✗ Excede</td></tr><tr><td>Transporte</td><td>52 €</td><td>100 €</td><td style="color:var(--green)">✓ OK</td></tr><tr><td>Ropa</td><td>34 €</td><td>80 €</td><td style="color:var(--green)">✓ OK</td></tr></table>
-            <div class="mock-pdf-sep"></div>
-            <div style="display:flex;justify-content:space-between;font-size:11px;font-weight:600;padding:4px 0"><span style="color:var(--text-soft)">Balance del mes</span><span style="color:var(--green)">+1.145 €</span></div>
-            <div class="mock-pdf-footer">Página 2 de 3 · Finanzas</div>
-          </div>
+      <div style="display:flex;justify-content:center;align-items:center;padding:20px">
+        <div class="mock-pdf">
+          <div class="mock-pdf-title"><h4>Informe Financiero</h4><p>Marzo 2026 · Generado 26/03/2026</p></div>
+          <div class="mock-pdf-bar"><span class="lbl">Ingresos</span><div class="track"><div class="fill" style="width:100%;background:var(--green)"></div></div><span class="val" style="color:var(--green)">3.200 €</span></div>
+          <div class="mock-pdf-bar"><span class="lbl">G. fijos</span><div class="track"><div class="fill" style="width:29%;background:var(--amber)"></div></div><span class="val" style="color:var(--amber)">920 €</span></div>
+          <div class="mock-pdf-bar"><span class="lbl">Variables</span><div class="track"><div class="fill" style="width:15%;background:var(--red)"></div></div><span class="val" style="color:var(--red)">485 €</span></div>
+          <div class="mock-pdf-bar"><span class="lbl">Ahorros</span><div class="track"><div class="fill" style="width:20%;background:var(--blue)"></div></div><span class="val" style="color:var(--blue)">650 €</span></div>
+          <div class="mock-pdf-sep"></div>
+          <table class="mock-pdf-table"><tr><th>Categoría</th><th>Gastado</th><th>Límite</th></tr><tr><td>Alimentación</td><td>187 €</td><td style="color:var(--green)">250 €</td></tr><tr><td>Ocio</td><td>145 €</td><td style="color:var(--red)">120 €</td></tr><tr><td>Transporte</td><td>52 €</td><td style="color:var(--green)">100 €</td></tr></table>
         </div>
       </div>
     </div>
@@ -578,14 +567,13 @@ footer a:hover{color:var(--green)}
       <div class="billing-toggle">
         <span id="lblMonthly" class="active">Mensual</span>
         <div class="toggle-track" id="billingToggle" onclick="toggleBilling()"><div class="toggle-knob"></div></div>
-        <span id="lblAnnual">Anual</span>
-        <span class="billing-save" id="saveBadge">Ahorra 20%</span>
+        <span id="lblAnnual">Anual</span><span class="billing-save" id="saveBadge" style="opacity:0;transition:opacity 0.3s">Ahorra 20%</span>
       </div>
     </div>
     <div class="pricing-grid">
-      <div class="price-card fade-in d1"><h3>Gratis</h3><div class="desc">Para empezar</div><div class="price">0 €<span> / mes</span></div><div class="pnote">Gratis para siempre</div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Vista mensual completa</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Presupuesto global</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Hasta 3 metas</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Temas claro y oscuro</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>PWA instalable</li></ul><a href="https://finance-app-umber-seven.vercel.app/auth/login" target="_blank" class="btn btn-ghost">Empezar gratis</a></div>
-      <div class="price-card featured fade-in d2"><div class="popular">Más popular</div><h3>Pro</h3><div class="desc">Control total</div><div class="price" id="proPriceWrap"><span class="old-price" id="proOld" style="display:none"></span><span id="proPrice">4,99 €</span><span> / mes</span></div><div class="pnote" id="proNote">Facturación mensual</div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Todo lo del plan Gratis</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Metas ilimitadas</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Presupuestos por categoría</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Exportación PDF</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>6 temas estacionales</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Búsqueda cross-month</li></ul><a href="https://finance-app-umber-seven.vercel.app/auth/login" target="_blank" class="btn btn-primary">Empezar con Pro</a></div>
-      <div class="price-card fade-in d3"><h3>Familia</h3><div class="desc">Para crecer juntos</div><div class="price" id="famPriceWrap"><span class="old-price" id="famOld" style="display:none"></span><span id="famPrice">9,99 €</span><span> / mes</span></div><div class="pnote" id="famNote">Hasta 3 miembros · Facturación mensual</div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Todo lo del plan Pro</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Hasta 3 cuentas familiares</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Cartera de inversiones</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Informes compartidos</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Soporte prioritario</li></ul><a href="https://finance-app-umber-seven.vercel.app/auth/login" target="_blank" class="btn btn-ghost">Elegir Familia</a></div>
+      <div class="price-card fade-in d1"><h3>Gratis</h3><div class="desc">Para empezar</div><div class="price">0 €<span> / mes</span></div><div class="pnote">Gratis para siempre</div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Vista mensual completa</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Presupuesto global</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Hasta 3 metas</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Temas claro y oscuro</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>PWA instalable</li></ul><a href="#" class="btn btn-ghost">Empezar gratis</a></div>
+      <div class="price-card featured fade-in d2"><div class="popular">Más popular</div><h3>Pro</h3><div class="desc">Control total</div><div class="price" id="proPriceWrap"><span class="old-price" id="proOld" style="display:none"></span><span id="proPrice">4,99 €</span><span> / mes</span></div><div class="pnote" id="proNote">Facturación mensual</div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Todo lo del plan Gratis</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Metas ilimitadas</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Presupuestos por categoría</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Exportación PDF</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>6 temas estacionales</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Búsqueda cross-month</li></ul><a href="#" class="btn btn-primary">Empezar con Pro</a></div>
+      <div class="price-card fade-in d3"><h3>Familia</h3><div class="desc">Para crecer juntos</div><div class="price" id="famPriceWrap"><span class="old-price" id="famOld" style="display:none"></span><span id="famPrice">9,99 €</span><span> / mes</span></div><div class="pnote" id="famNote">Hasta 3 miembros · Facturación mensual</div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Todo lo del plan Pro</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Hasta 3 cuentas familiares</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Cartera de inversiones</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Informes compartidos</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Soporte prioritario</li></ul><a href="#" class="btn btn-ghost">Elegir Familia</a></div>
     </div>
   </div>
 </section>
@@ -606,7 +594,7 @@ footer a:hover{color:var(--green)}
 
 <!-- CTA -->
 <section class="section-pad" style="padding-top:40px">
-  <div class="cta-banner fade-in"><h2>Empieza a controlar tu dinero hoy</h2><p>Crea tu cuenta gratis en 30 segundos. Sin tarjeta, sin compromisos.</p><a href="https://finance-app-umber-seven.vercel.app/auth/login" target="_blank" class="btn btn-primary" style="font-size:17px;padding:16px 36px">Crear cuenta gratis <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+  <div class="cta-banner fade-in"><h2>Empieza a controlar tu dinero hoy</h2><p>Crea tu cuenta gratis en 30 segundos. Sin tarjeta, sin compromisos.</p><a href="#" class="btn btn-primary" style="font-size:17px;padding:16px 36px">Crear cuenta gratis <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
 </section>
 
 <!-- CONTACT -->
@@ -654,26 +642,24 @@ document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
 let isAnnual=false;
 function toggleBilling(){
   isAnnual=!isAnnual;
-  document.getElementById('billingToggle').classList.toggle('annual',isAnnual);
-  document.getElementById('lblMonthly').classList.toggle('active',!isAnnual);
-  document.getElementById('lblAnnual').classList.toggle('active',isAnnual);
-  document.getElementById('saveBadge').classList.toggle('show',isAnnual);
-  // Pro pricing
-  const proPrice=document.getElementById('proPrice');
-  const proOld=document.getElementById('proOld');
-  const proNote=document.getElementById('proNote');
-  proPrice.textContent=isAnnual?'3,99 €':'4,99 €';
-  proOld.textContent='4,99 €';
-  proOld.style.display=isAnnual?'inline':'none';
-  proNote.textContent=isAnnual?'47,88 €/año · Facturación anual':'Facturación mensual';
-  // Family pricing
-  const famPrice=document.getElementById('famPrice');
-  const famOld=document.getElementById('famOld');
-  const famNote=document.getElementById('famNote');
-  famPrice.textContent=isAnnual?'7,99 €':'9,99 €';
-  famOld.textContent='9,99 €';
-  famOld.style.display=isAnnual?'inline':'none';
-  famNote.textContent=isAnnual?'Hasta 3 miembros · 95,88 €/año':'Hasta 3 miembros · Facturación mensual';
+  const track=document.getElementById('billingToggle');
+  const lblM=document.getElementById('lblMonthly');
+  const lblA=document.getElementById('lblAnnual');
+  const badge=document.getElementById('saveBadge');
+  track.classList.toggle('annual',isAnnual);
+  lblM.classList.toggle('active',!isAnnual);
+  lblA.classList.toggle('active',isAnnual);
+  badge.style.opacity=isAnnual?'1':'0';
+  // Pro
+  document.getElementById('proPrice').textContent=isAnnual?'3,99 €':'4,99 €';
+  document.getElementById('proOld').textContent='4,99 €';
+  document.getElementById('proOld').style.display=isAnnual?'inline':'none';
+  document.getElementById('proNote').textContent=isAnnual?'47,88 €/año · Facturación anual':'Facturación mensual';
+  // Family
+  document.getElementById('famPrice').textContent=isAnnual?'7,99 €':'9,99 €';
+  document.getElementById('famOld').textContent='9,99 €';
+  document.getElementById('famOld').style.display=isAnnual?'inline':'none';
+  document.getElementById('famNote').textContent=isAnnual?'Hasta 3 miembros · 95,88 €/año':'Hasta 3 miembros · Facturación mensual';
 }
 
 // Form handler
