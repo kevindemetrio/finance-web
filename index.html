@@ -7,315 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root {
-  --green:#1D9E75;--green-light:#E1F5EE;--green-dark:#0F6E56;--green-glow:rgba(29,158,117,0.25);
-  --cream:#FDFBF7;--sand:#F5F0E8;--text:#2D2A26;--text-soft:#6B6560;--text-muted:#9B958E;
-  --border:#E8E2D8;--card-bg:#FFFFFF;--blue:#378ADD;--blue-light:#E6F1FB;
-  --amber:#BA7517;--amber-light:#FAEEDA;--red:#E24B4A;--red-light:#FCEBEB;
-  --orange:#D85A30;--purple:#7C3AED;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Outfit',sans-serif;color:var(--text);background:var(--cream);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-h1,h2,h3,.serif{font-family:'Fraunces',serif}
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.02;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:128px}
-.container{max-width:1160px;margin:0 auto;padding:0 24px}
-.section-pad{padding:100px 0}
-.section-label{font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:14px;display:inline-block}
-.section-title{font-size:clamp(30px,4.5vw,48px);line-height:1.12;color:var(--text);margin-bottom:16px;font-weight:500}
-.section-subtitle{font-family:'Outfit',sans-serif;font-size:17px;line-height:1.7;color:var(--text-soft);max-width:560px}
-.btn{display:inline-flex;align-items:center;gap:8px;font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;padding:14px 28px;border-radius:14px;cursor:pointer;border:none;text-decoration:none;transition:all 0.35s cubic-bezier(0.23,1,0.32,1)}
-.btn-primary{background:var(--green);color:white;box-shadow:0 2px 20px var(--green-glow),0 1px 3px rgba(0,0,0,0.06)}
-.btn-primary:hover{background:var(--green-dark);transform:translateY(-2px);box-shadow:0 8px 28px var(--green-glow),0 2px 6px rgba(0,0,0,0.08)}
-.btn-ghost{background:transparent;color:var(--text);border:1.5px solid var(--border)}
-.btn-ghost:hover{border-color:var(--green);color:var(--green-dark);background:rgba(29,158,117,0.04)}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;background:rgba(253,251,247,0.8);backdrop-filter:blur(24px) saturate(1.6);-webkit-backdrop-filter:blur(24px) saturate(1.6);border-bottom:1px solid rgba(232,226,216,0.4);transition:all 0.3s}
-nav.scrolled{padding:10px 0;box-shadow:0 1px 16px rgba(0,0,0,0.04)}
-nav .container{display:flex;align-items:center;justify-content:space-between}
-.nav-brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-size:22px;color:var(--green);font-weight:500;text-decoration:none}
-.nav-links{display:flex;align-items:center;gap:32px;list-style:none}
-.nav-links a{font-size:14px;font-weight:500;color:var(--text-soft);text-decoration:none;transition:color 0.2s}
-.nav-links a:hover{color:var(--green)}
-.nav-cta{font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;color:white;background:var(--green);padding:10px 22px;border-radius:12px;text-decoration:none;transition:all 0.3s;box-shadow:0 1px 8px var(--green-glow)}
-.nav-cta:hover{background:var(--green-dark);transform:translateY(-1px)}
-.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px;color:var(--text)}
-.mobile-menu{flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(253,251,247,0.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:0 24px;border-bottom:1px solid var(--border);max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.23,1,0.32,1),padding 0.4s cubic-bezier(0.23,1,0.32,1);display:flex}
-.mobile-menu.open{max-height:400px;padding:16px 24px 24px}
-.mobile-menu a{padding:14px 0;font-size:15px;font-weight:500;color:var(--text-soft);text-decoration:none;border-bottom:1px solid #f5f2ed;opacity:0;transform:translateY(-8px);transition:opacity 0.3s ease,transform 0.3s ease}
-.mobile-menu.open a{opacity:1;transform:translateY(0)}
-.mobile-menu.open a:nth-child(1){transition-delay:0.05s}
-.mobile-menu.open a:nth-child(2){transition-delay:0.1s}
-.mobile-menu.open a:nth-child(3){transition-delay:0.15s}
-.mobile-menu.open a:nth-child(4){transition-delay:0.2s}
-.mobile-menu.open a:nth-child(5){transition-delay:0.25s}
-.mobile-menu.open a:nth-child(6){transition-delay:0.3s}
-.mobile-menu a:last-child{border:none}
-.mobile-menu .nav-cta{display:inline-block;text-align:center;margin-top:12px}
-
-/* HERO */
-.hero{padding:150px 0 80px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-40%;right:-15%;width:900px;height:900px;background:radial-gradient(circle,rgba(29,158,117,0.07) 0%,transparent 60%);border-radius:50%;pointer-events:none}
-.hero::after{content:'';position:absolute;bottom:-20%;left:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(55,138,221,0.05) 0%,transparent 60%);border-radius:50%;pointer-events:none}
-.hero .container{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:center;position:relative;z-index:1}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:0.03em;color:var(--green-dark);background:var(--green-light);padding:7px 16px;border-radius:100px;margin-bottom:24px;border:1px solid rgba(29,158,117,0.12)}
-.hero h1{font-size:clamp(38px,5.2vw,60px);line-height:1.08;margin-bottom:22px;font-weight:500}
-.hero h1 em{font-style:italic;color:var(--green)}
-.hero-desc{font-size:18px;line-height:1.72;color:var(--text-soft);margin-bottom:36px;max-width:480px}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
-.hero-trust{display:flex;align-items:center;gap:16px;margin-top:36px;padding-top:28px;border-top:1px solid var(--border)}
-.trust-item{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--text-muted)}
-.trust-icon{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:var(--green-light);color:var(--green)}
-
-/* Hero App Frame */
-.hero-visual{position:relative;display:flex;justify-content:center}
-.app-frame{width:420px;background:#f8f9f8;border-radius:20px;padding:1px;box-shadow:0 24px 80px rgba(0,0,0,0.09),0 6px 20px rgba(0,0,0,0.04),inset 0 1px 0 rgba(255,255,255,0.9);border:1px solid rgba(0,0,0,0.06);overflow:hidden;transform:perspective(1200px) rotateY(-4deg) rotateX(1deg);transition:transform 0.7s cubic-bezier(0.23,1,0.32,1)}
-.app-frame:hover{transform:perspective(1200px) rotateY(0) rotateX(0)}
-.app-topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:white;border-bottom:1px solid #f0ede8}
-.app-tabs{display:inline-flex;gap:2px;background:#f3f1ec;border-radius:10px;padding:3px}
-.app-tab{font-size:11px;font-weight:600;padding:5px 12px;border-radius:8px;color:var(--text-muted)}
-.app-tab.active{background:white;color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,0.06)}
-.app-nav-month{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--text)}
-.app-nav-month .arr{width:22px;height:22px;display:flex;align-items:center;justify-content:center;border-radius:8px;font-size:14px;color:var(--text-muted);background:#f3f1ec}
-.app-icons{display:flex;gap:4px}
-.app-icons span{width:26px;height:26px;display:flex;align-items:center;justify-content:center;border-radius:8px;color:var(--text-muted);font-size:13px}
-.app-body{padding:12px;background:#f8f9f8}
-.app-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:10px}
-.app-metric{background:white;border-radius:10px;padding:10px;border:1px solid #f0ede8}
-.app-metric label{display:block;font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:4px}
-.app-metric .val{font-size:14px;font-weight:700}
-.app-metric .sub{font-size:8px;color:var(--text-muted);margin-top:2px}
-.app-section{background:white;border-radius:14px;border:1px solid #f0ede8;margin-bottom:8px;overflow:hidden}
-.app-section-header{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-bottom:1px solid #f5f2ed}
-.app-section-header .left{display:flex;align-items:center;gap:6px}
-.app-dot{width:6px;height:6px;border-radius:50%}
-.app-section-header .title{font-size:11px;font-weight:600;color:var(--text)}
-.app-section-header .count{font-size:9px;color:var(--text-muted)}
-.app-section-header .total{font-size:12px;font-weight:600}
-.app-row{display:flex;align-items:center;justify-content:space-between;padding:7px 12px;border-bottom:1px solid #faf8f5;font-size:11px}
-.app-row:last-child{border:none}
-.app-row .name{font-weight:500;color:var(--text)}
-.app-row .note{font-size:8px;color:var(--text-muted);font-style:italic}
-.app-row .date{font-size:9px;color:var(--text-muted);margin:0 8px}
-.app-row .cat-badge{font-size:8px;font-weight:600;padding:2px 6px;border-radius:4px;white-space:nowrap}
-.app-row .status-badge{font-size:8px;font-weight:600;padding:2px 8px;border-radius:100px}
-.app-row .amount{font-weight:600;white-space:nowrap}
-.app-row .icon-btn{width:18px;height:18px;display:flex;align-items:center;justify-content:center;border-radius:4px;color:#ccc;font-size:10px}
-.app-budget-bar{margin:0 12px 8px;height:4px;background:#f0ede8;border-radius:2px;overflow:hidden}
-.app-budget-fill{height:100%;border-radius:2px}
-.float-card{position:absolute;background:white;border-radius:16px;padding:14px 18px;box-shadow:0 10px 40px rgba(0,0,0,0.08),0 2px 8px rgba(0,0,0,0.03);border:1px solid rgba(0,0,0,0.04);animation:float 5s ease-in-out infinite;z-index:2}
-.float-card.fc1{top:10px;right:-40px;animation-delay:0s}
-.float-card.fc2{bottom:60px;left:-50px;animation-delay:-2.5s}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.fc-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);margin-bottom:4px}
-.fc-value{font-family:'Fraunces',serif;font-size:22px;font-weight:500}
-.fc-sparkline{display:flex;align-items:flex-end;gap:3px;margin-top:6px}
-.fc-sparkline span{width:4px;border-radius:2px;background:var(--green);opacity:0.6}
-
-/* FEATURES */
-.feature-block{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:80px 0;border-bottom:1px solid var(--border)}
-.feature-block:last-child{border-bottom:none}
-.feature-block.reverse{direction:rtl}
-.feature-block.reverse>*{direction:ltr}
-.feature-text{max-width:440px}
-.feature-tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:5px 12px;border-radius:8px;margin-bottom:18px}
-.feature-text h3{font-size:clamp(24px,3vw,32px);line-height:1.2;margin-bottom:14px;font-weight:500}
-.feature-text p{font-size:15px;line-height:1.75;color:var(--text-soft);margin-bottom:20px}
-.feature-bullets{list-style:none;display:flex;flex-direction:column;gap:10px}
-.feature-bullets li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text-soft);line-height:1.5}
-.feature-bullets li svg{flex-shrink:0;margin-top:3px}
-
-/* GUI Mockups */
-.gui-mockup{background:#f8f9f8;border-radius:20px;overflow:hidden;border:1px solid rgba(0,0,0,0.06);box-shadow:0 16px 60px rgba(0,0,0,0.06),0 4px 14px rgba(0,0,0,0.03)}
-.gui-titlebar{display:flex;align-items:center;gap:6px;padding:12px 16px;background:white;border-bottom:1px solid #f0ede8}
-.gui-dot{width:8px;height:8px;border-radius:50%}
-.gui-titlebar .title{font-size:11px;font-weight:600;color:var(--text-muted);margin-left:8px}
-.gui-body{padding:16px}
-.mock-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
-.mock-metric{background:white;border-radius:12px;padding:12px;border:1px solid #f0ede8}
-.mock-metric label{display:block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-muted);margin-bottom:5px}
-.mock-metric .val{font-size:16px;font-weight:700}
-.mock-metric .sub{font-size:9px;color:var(--text-muted);margin-top:3px}
-.mock-section{background:white;border-radius:14px;border:1px solid #f0ede8;overflow:hidden;margin-bottom:10px}
-.mock-section-head{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid #f5f2ed}
-.mock-section-head .left{display:flex;align-items:center;gap:6px}
-.mock-section-head .dot{width:7px;height:7px;border-radius:50%}
-.mock-section-head .title{font-size:12px;font-weight:600}
-.mock-section-head .cnt{font-size:9px;color:var(--text-muted)}
-.mock-section-head .total{font-size:13px;font-weight:700}
-.mock-row{display:flex;align-items:center;padding:8px 14px;border-bottom:1px solid #faf8f5;font-size:12px}
-.mock-row:last-child{border:none}
-.mock-row .info{flex:1;min-width:0}
-.mock-row .name{font-weight:500}
-.mock-row .note{font-size:9px;color:var(--text-muted);font-style:italic}
-.mock-row .meta{display:flex;align-items:center;gap:8px}
-.mock-row .date{font-size:9px;color:var(--text-muted)}
-.mock-row .cat{font-size:8px;font-weight:600;padding:2px 7px;border-radius:4px}
-.mock-row .badge{font-size:8px;font-weight:600;padding:2px 8px;border-radius:100px}
-.mock-row .amt{font-weight:700;min-width:70px;text-align:right}
-.mock-row .btns{display:flex;gap:2px;margin-left:6px}
-.mock-row .btn-sm{width:20px;height:20px;display:flex;align-items:center;justify-content:center;border-radius:5px;color:#c8c4be;font-size:10px}
-.mock-progress{margin:0 14px 10px;height:5px;background:#f0ede8;border-radius:3px;overflow:hidden}
-.mock-progress-fill{height:100%;border-radius:3px}
-.mock-goal{background:white;border-radius:14px;border:1px solid #f0ede8;padding:16px;margin-bottom:10px}
-.mock-goal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-.mock-goal-header .name{font-size:14px;font-weight:600}
-.mock-goal-header .target{font-size:12px;color:var(--text-muted)}
-.mock-goal-bar{height:10px;background:#f0ede8;border-radius:5px;overflow:hidden;margin-bottom:8px}
-.mock-goal-fill{height:100%;border-radius:5px}
-.mock-goal-footer{display:flex;justify-content:space-between;font-size:10px;color:var(--text-muted);font-weight:500}
-.mock-budget-row{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid #faf8f5}
-.mock-budget-row:last-child{border:none}
-.mock-budget-row .cat-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.mock-budget-row .info{flex:1}
-.mock-budget-row .cat-name{font-size:12px;font-weight:600}
-.mock-budget-row .cat-detail{font-size:10px;color:var(--text-muted)}
-.mock-budget-row .bar{flex:1;height:6px;background:#f0ede8;border-radius:3px;overflow:hidden;min-width:80px}
-.mock-budget-row .bar-fill{height:100%;border-radius:3px}
-.mock-budget-row .pct{font-size:11px;font-weight:700;min-width:32px;text-align:right}
-.mock-inv-cat{background:white;border-radius:14px;border:1px solid #f0ede8;overflow:hidden;margin-bottom:10px}
-.mock-inv-head{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid #f5f2ed}
-.mock-inv-head .cat{font-size:12px;font-weight:600}
-.mock-inv-head .total{font-size:12px;font-weight:700}
-.mock-inv-item{padding:10px 14px;border-bottom:1px solid #faf8f5}
-.mock-inv-item:last-child{border:none}
-.mock-inv-item .name{font-size:12px;font-weight:600}
-.mock-inv-item .isin{font-size:9px;color:var(--text-muted)}
-.mock-inv-item .contribs{font-size:10px;color:var(--text-soft);margin-top:4px}
-.mock-pdf-inner{background:white;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.05);padding:24px 20px;position:relative}
-.mock-pdf-inner::after{content:'PDF';position:absolute;top:10px;right:10px;font-size:9px;font-weight:700;color:white;background:var(--red);padding:2px 6px;border-radius:4px}
-.mock-pdf{background:white;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,0.08);padding:24px 20px;max-width:280px;margin:0 auto;position:relative}
-.mock-pdf::after{content:'PDF';position:absolute;top:10px;right:10px;font-size:9px;font-weight:700;color:white;background:var(--red);padding:2px 6px;border-radius:4px}
-.mock-pdf-title{text-align:center;margin-bottom:18px}
-.mock-pdf-title h4{font-family:'Fraunces',serif;font-size:16px;font-weight:500;color:var(--green)}
-.mock-pdf-title p{font-size:10px;color:var(--text-muted)}
-.mock-pdf-bar{display:flex;align-items:center;gap:8px;margin-bottom:10px;font-size:10px}
-.mock-pdf-bar .lbl{width:60px;font-weight:600;color:var(--text-soft);text-align:right}
-.mock-pdf-bar .track{flex:1;height:8px;background:#f0ede8;border-radius:4px;overflow:hidden}
-.mock-pdf-bar .fill{height:100%;border-radius:4px}
-.mock-pdf-bar .val{width:50px;font-weight:600;font-size:10px}
-.mock-pdf-sep{height:1px;background:#f0ede8;margin:14px 0}
-.mock-pdf-table{width:100%;font-size:9px;border-collapse:collapse}
-.mock-pdf-table th{text-align:left;font-weight:700;color:var(--text-muted);padding:4px 0;text-transform:uppercase;letter-spacing:0.05em;border-bottom:1px solid #f0ede8}
-.mock-pdf-table td{padding:5px 0;color:var(--text-soft)}
-.mock-pdf-table td:last-child{text-align:right;font-weight:600}
-.mock-pdf-footer{font-size:8px;color:var(--text-muted);text-align:center;margin-top:14px;padding-top:8px;border-top:1px solid #f0ede8}
-
-/* Seasons strip */
-.seasons-strip-section{background:var(--sand)}
-.seasons-strip{display:flex;gap:12px;margin-top:36px;overflow-x:auto;padding-bottom:8px;-webkit-overflow-scrolling:touch}
-.seasons-strip::-webkit-scrollbar{display:none}
-.season-chip{flex:0 0 auto;display:flex;align-items:center;gap:10px;padding:12px 20px;border-radius:14px;font-size:14px;font-weight:600;white-space:nowrap;transition:transform 0.3s}
-.season-chip:hover{transform:translateY(-2px)}
-.season-chip .emoji{font-size:20px}
-.sc-spring{background:#e8f5e0;color:#1a3a0e}.sc-summer{background:#e0f7fa;color:#006064}
-.sc-autumn{background:#fff7ed;color:#7c2d12}.sc-halloween{background:#2d1b00;color:#ffcc80}
-.sc-winter{background:#eff6ff;color:#1e3a5f}.sc-christmas{background:#0a1628;color:#e3f2fd}
-
-/* Pricing */
-.pricing-section{background:var(--sand)}
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;align-items:start}
-.price-card{background:var(--card-bg);border:1.5px solid var(--border);border-radius:24px;padding:36px 28px;text-align:center;transition:all 0.4s;position:relative}
-.price-card.featured{border-color:var(--green);box-shadow:0 8px 40px var(--green-glow),0 0 0 1px var(--green);transform:scale(1.03)}
-.price-card .popular{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--green);color:white;font-size:11px;font-weight:700;padding:5px 16px;border-radius:100px;letter-spacing:0.05em;text-transform:uppercase}
-.price-card h3{font-family:'Outfit',sans-serif;font-size:18px;font-weight:700;margin-bottom:4px}
-.price-card .desc{font-size:13px;color:var(--text-muted);margin-bottom:16px}
-.price-card .price{font-family:'Fraunces',serif;font-size:44px;color:var(--text);margin-bottom:4px;font-weight:500;display:flex;align-items:baseline;justify-content:center;gap:2px;flex-wrap:wrap;min-height:56px}
-.price-card .price span{font-family:'Outfit',sans-serif;font-size:15px;color:var(--text-muted);font-weight:400}
-.price-card .price #proPrice,.price-card .price #famPrice{font-family:'Fraunces',serif;font-size:44px;font-weight:500;color:var(--text)}
-.price-card .pnote{font-size:12px;color:var(--text-muted);margin-bottom:24px}
-.price-card ul{list-style:none;text-align:left;margin-bottom:28px}
-.price-card li{font-size:14px;color:var(--text-soft);padding:9px 0;display:flex;align-items:flex-start;gap:10px;border-bottom:1px solid #f5f2ed}
-.price-card li:last-child{border:none}
-.price-card li svg{flex-shrink:0;margin-top:2px}
-.price-card .btn{width:100%;justify-content:center}
-.billing-toggle{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:28px;margin-bottom:-4px}
-.billing-toggle span{font-size:14px;font-weight:500;color:var(--text-muted);transition:color 0.3s,font-weight 0.3s}
-.billing-toggle span.active{color:var(--text);font-weight:600}
-.toggle-track{width:48px;height:26px;border-radius:13px;background:var(--border);cursor:pointer;position:relative;transition:background 0.3s;flex-shrink:0}
-.toggle-track.annual{background:var(--green)}
-.toggle-knob{width:20px;height:20px;border-radius:50%;background:white;position:absolute;top:3px;left:3px;transition:transform 0.3s cubic-bezier(0.23,1,0.32,1);box-shadow:0 1px 4px rgba(0,0,0,0.15)}
-.toggle-track.annual .toggle-knob{transform:translateX(22px)}
-.billing-save{font-size:11px;font-weight:700;color:var(--green-dark);background:var(--green-light);padding:4px 12px;border-radius:100px;opacity:0;transform:translateX(-8px);transition:opacity 0.3s ease,transform 0.3s ease;pointer-events:none}
-.billing-save.show{opacity:1;transform:translateX(0)}
-.price-card .old-price{font-size:15px;color:var(--text-muted);text-decoration:line-through;margin-right:6px;font-family:'Outfit',sans-serif;font-weight:400}
-
-/* FAQ */
-.faq-list{max-width:700px;margin:48px auto 0}
-.faq-item{border-bottom:1px solid var(--border)}
-.faq-q{width:100%;background:none;border:none;font-family:'Outfit',sans-serif;font-size:16px;font-weight:600;color:var(--text);padding:22px 0;display:flex;justify-content:space-between;align-items:center;cursor:pointer;text-align:left;transition:color 0.2s}
-.faq-q:hover{color:var(--green)}
-.faq-q .chev{transition:transform 0.3s;flex-shrink:0;margin-left:16px;color:var(--text-muted)}
-.faq-item.open .chev{transform:rotate(180deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease}
-.faq-item.open .faq-a{max-height:200px}
-.faq-a p{padding-bottom:22px;font-size:14px;line-height:1.75;color:var(--text-soft)}
-
-/* CTA */
-.cta-banner{text-align:center;background:linear-gradient(155deg,var(--green-light) 0%,#d1fae5 50%,#a7f3d0 100%);border-radius:24px;padding:80px 40px;margin:0 24px;position:relative;overflow:hidden}
-.cta-banner::before{content:'';position:absolute;top:-80px;right:-80px;width:280px;height:280px;background:radial-gradient(circle,rgba(29,158,117,0.12) 0%,transparent 70%);border-radius:50%}
-.cta-banner h2{font-size:clamp(28px,4vw,42px);margin-bottom:14px;position:relative;font-weight:500}
-.cta-banner p{font-size:17px;color:var(--green-dark);margin-bottom:32px;opacity:0.85;max-width:480px;margin-inline:auto}
-
-/* Contact */
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px}
-.contact-info h3{font-family:'Outfit',sans-serif;font-size:20px;font-weight:700;margin-bottom:14px}
-.contact-info p{font-size:15px;color:var(--text-soft);line-height:1.7;margin-bottom:24px}
-.contact-link{display:flex;align-items:center;gap:12px;padding:12px 0;font-size:14px;color:var(--text);text-decoration:none;transition:color 0.2s}
-.contact-link:hover{color:var(--green)}
-.contact-link-icon{width:40px;height:40px;background:var(--green-light);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--green)}
-.contact-form{display:flex;flex-direction:column;gap:14px}
-.form-group{display:flex;flex-direction:column;gap:5px}
-.form-group label{font-size:13px;font-weight:600}
-.form-group input,.form-group textarea{font-family:'Outfit',sans-serif;font-size:14px;padding:12px 16px;border:1.5px solid var(--border);border-radius:12px;background:white;color:var(--text);outline:none;transition:border-color 0.2s,box-shadow 0.2s}
-.form-group input:focus,.form-group textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px var(--green-glow)}
-.form-group textarea{resize:vertical;min-height:110px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-
-/* Footer */
-footer{background:var(--text);color:rgba(255,255,255,0.65);padding:60px 0 28px;margin-top:100px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
-.footer-brand{font-family:'Fraunces',serif;font-size:22px;color:var(--green);margin-bottom:14px;font-weight:500}
-.footer-brand+p{font-size:14px;line-height:1.7;max-width:280px}
-footer h4{font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;color:white;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px}
-footer ul{list-style:none}
-footer li{margin-bottom:10px}
-footer a{font-size:14px;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
-footer a:hover{color:var(--green)}
-.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;justify-content:space-between;font-size:13px}
-
-/* Animations */
-.fade-in{opacity:0;transform:translateY(28px);transition:opacity 0.8s cubic-bezier(0.23,1,0.32,1),transform 0.8s cubic-bezier(0.23,1,0.32,1)}
-.fade-in.visible{opacity:1;transform:translateY(0)}
-.d1{transition-delay:0.1s}.d2{transition-delay:0.2s}.d3{transition-delay:0.3s}
-
-/* Responsive */
-@media(max-width:1024px){
-  .hero .container{grid-template-columns:1fr;text-align:center}
-  .hero-desc{margin-inline:auto;max-width:100%}
-  .hero-actions{justify-content:center}.hero-trust{justify-content:center}
-  .hero-visual{margin-top:32px}.float-card{display:none}.app-frame{width:360px}
-  .feature-block,.feature-block.reverse{grid-template-columns:1fr;gap:40px;direction:ltr}
-  .feature-text{text-align:center;margin-inline:auto;max-width:100%}
-  .feature-bullets{align-items:center}
-  .pricing-grid{grid-template-columns:1fr;max-width:400px;margin-inline:auto}
-  .price-card.featured{transform:scale(1)}
-  .contact-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:640px){
-  .nav-links{display:none}.nav-cta-desktop{display:none}.hamburger{display:block}
-  .section-pad{padding:64px 0}.feature-block{padding:48px 0}
-  .app-frame{width:100%;max-width:340px}
-  .app-metrics,.mock-metrics{grid-template-columns:repeat(2,1fr)}
-  .form-row{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr;gap:24px}
-  .footer-bottom{flex-direction:column;gap:12px;text-align:center}
-  .cta-banner{margin:0 16px;padding:48px 20px}
-  .hero-trust{flex-wrap:wrap;gap:12px}
-}
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -328,7 +20,6 @@ footer a:hover{color:var(--green)}
     </a>
     <ul class="nav-links">
       <li><a href="#features">Funciones</a></li>
-      <li><a href="#gallery">Galería</a></li>
       <li><a href="#pricing">Precios</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contacto</a></li>
@@ -338,7 +29,6 @@ footer a:hover{color:var(--green)}
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <a href="#features" onclick="closeMenu()">Funciones</a>
-    <a href="#gallery" onclick="closeMenu()">Galería</a>
     <a href="#pricing" onclick="closeMenu()">Precios</a>
     <a href="#faq" onclick="closeMenu()">FAQ</a>
     <a href="#contact" onclick="closeMenu()">Contacto</a>
@@ -539,16 +229,24 @@ footer a:hover{color:var(--green)}
         <div class="gui-titlebar"><div class="gui-dot" style="background:#ff5f57"></div><div class="gui-dot" style="background:#ffbd2e"></div><div class="gui-dot" style="background:#27c93f"></div><span class="title">Informe PDF — Marzo 2026</span></div>
         <div class="gui-body">
           <div class="mock-pdf-inner">
-            <div class="mock-pdf-title"><h4>Informe Financiero</h4><p>Marzo 2026 · Generado 26/03/2026</p></div>
-            <div class="mock-pdf-bar"><span class="lbl">Ingresos</span><div class="track"><div class="fill" style="width:100%;background:var(--green)"></div></div><span class="val" style="color:var(--green)">3.200 €</span></div>
-            <div class="mock-pdf-bar"><span class="lbl">G. fijos</span><div class="track"><div class="fill" style="width:29%;background:var(--amber)"></div></div><span class="val" style="color:var(--amber)">920 €</span></div>
-            <div class="mock-pdf-bar"><span class="lbl">Variables</span><div class="track"><div class="fill" style="width:15%;background:var(--red)"></div></div><span class="val" style="color:var(--red)">485 €</span></div>
-            <div class="mock-pdf-bar"><span class="lbl">Ahorros</span><div class="track"><div class="fill" style="width:20%;background:var(--blue)"></div></div><span class="val" style="color:var(--blue)">650 €</span></div>
-            <div class="mock-pdf-sep"></div>
-            <table class="mock-pdf-table"><tr><th>Categoría</th><th>Gastado</th><th>Límite</th><th>Estado</th></tr><tr><td>Alimentación</td><td>187 €</td><td>250 €</td><td style="color:var(--green)">✓ OK</td></tr><tr><td>Ocio</td><td>145 €</td><td>120 €</td><td style="color:var(--red)">✗ Excede</td></tr><tr><td>Transporte</td><td>52 €</td><td>100 €</td><td style="color:var(--green)">✓ OK</td></tr><tr><td>Ropa</td><td>34 €</td><td>80 €</td><td style="color:var(--green)">✓ OK</td></tr></table>
-            <div class="mock-pdf-sep"></div>
-            <div style="display:flex;justify-content:space-between;font-size:11px;font-weight:600;padding:4px 0"><span style="color:var(--text-soft)">Balance del mes</span><span style="color:var(--green)">+1.145 €</span></div>
-            <div class="mock-pdf-footer">Página 2 de 3 · Finanzas</div>
+            <div class="mock-pdf-col">
+              <div class="mock-pdf-title"><h4>Informe Financiero</h4><p>Marzo 2026 · Generado 26/03/2026</p></div>
+              <div class="mock-pdf-bar"><span class="lbl">Ingresos</span><div class="track"><div class="fill" style="width:100%;background:var(--green)"></div></div><span class="val" style="color:var(--green)">3.200 €</span></div>
+              <div class="mock-pdf-bar"><span class="lbl">G. fijos</span><div class="track"><div class="fill" style="width:29%;background:var(--amber)"></div></div><span class="val" style="color:var(--amber)">920 €</span></div>
+              <div class="mock-pdf-bar"><span class="lbl">Variables</span><div class="track"><div class="fill" style="width:15%;background:var(--red)"></div></div><span class="val" style="color:var(--red)">485 €</span></div>
+              <div class="mock-pdf-bar"><span class="lbl">Ahorros</span><div class="track"><div class="fill" style="width:20%;background:var(--blue)"></div></div><span class="val" style="color:var(--blue)">650 €</span></div>
+              <div class="mock-pdf-sep"></div>
+              <div style="display:flex;justify-content:space-between;font-size:11px;font-weight:600;padding:4px 0"><span style="color:var(--text-soft)">Balance del mes</span><span style="color:var(--green)">+1.145 €</span></div>
+              <div class="mock-pdf-footer">Página 1 de 3 · Finanzas</div>
+            </div>
+            <div class="mock-pdf-col">
+              <div style="font-size:11px;font-weight:700;margin-bottom:10px;padding-left:8px;border-left:3px solid var(--green);color:var(--text)">Gastos por categoría</div>
+              <table class="mock-pdf-table"><tr><th>Categoría</th><th>Gastado</th><th>Límite</th><th>Estado</th></tr><tr><td>Alimentación</td><td>187 €</td><td>250 €</td><td style="color:var(--green)">✓ OK</td></tr><tr><td>Ocio</td><td>145 €</td><td>120 €</td><td style="color:var(--red)">✗ Excede</td></tr><tr><td>Transporte</td><td>52 €</td><td>100 €</td><td style="color:var(--green)">✓ OK</td></tr><tr><td>Ropa</td><td>34 €</td><td>80 €</td><td style="color:var(--green)">✓ OK</td></tr></table>
+              <div class="mock-pdf-sep"></div>
+              <div style="font-size:11px;font-weight:700;margin-bottom:10px;padding-left:8px;border-left:3px solid var(--amber);color:var(--text)">Gastos fijos</div>
+              <table class="mock-pdf-table"><tr><th>Concepto</th><th>Importe</th><th>Estado</th></tr><tr><td>Alquiler</td><td>650 €</td><td style="color:var(--green)">✓ Cobrado</td></tr><tr><td>Seguro coche</td><td>95 €</td><td style="color:var(--red)">✗ Pendiente</td></tr><tr><td>Internet</td><td>35 €</td><td style="color:var(--green)">✓ Cobrado</td></tr><tr><td>Gimnasio</td><td>40 €</td><td style="color:var(--green)">✓ Cobrado</td></tr></table>
+              <div class="mock-pdf-footer">Página 2 de 3 · Finanzas</div>
+            </div>
           </div>
         </div>
       </div>
@@ -556,20 +254,6 @@ footer a:hover{color:var(--green)}
   </div>
 </section>
 
-<!-- SEASONS -->
-<section id="gallery" class="seasons-strip-section section-pad" style="padding:60px 0">
-  <div class="container">
-    <div class="fade-in" style="text-align:center"><div class="section-label">Personalización</div><h2 class="section-title" style="font-size:clamp(24px,3.5vw,36px)">6 temas estacionales que cambian solos</h2><p class="section-subtitle" style="margin-inline:auto">La interfaz se adapta automáticamente a la época del año con fondos SVG animados y partículas.</p></div>
-    <div class="seasons-strip fade-in">
-      <div class="season-chip sc-spring"><span class="emoji">🌸</span>Primavera</div>
-      <div class="season-chip sc-summer"><span class="emoji">☀️</span>Verano</div>
-      <div class="season-chip sc-autumn"><span class="emoji">🍂</span>Otoño</div>
-      <div class="season-chip sc-halloween"><span class="emoji">🎃</span>Halloween</div>
-      <div class="season-chip sc-winter"><span class="emoji">❄️</span>Invierno</div>
-      <div class="season-chip sc-christmas"><span class="emoji">🎄</span>Navidad</div>
-    </div>
-  </div>
-</section>
 
 <!-- PRICING -->
 <section id="pricing" class="pricing-section section-pad">
@@ -584,8 +268,8 @@ footer a:hover{color:var(--green)}
     </div>
     <div class="pricing-grid">
       <div class="price-card fade-in d1"><h3>Gratis</h3><div class="desc">Para empezar</div><div class="price">0 €<span> / mes</span></div><div class="pnote">Gratis para siempre</div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Vista mensual completa</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Presupuesto global</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Hasta 3 metas</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Temas claro y oscuro</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>PWA instalable</li></ul><a href="https://finance-app-umber-seven.vercel.app/auth/login" target="_blank" class="btn btn-ghost">Empezar gratis</a></div>
-      <div class="price-card featured fade-in d2"><div class="popular">Más popular</div><h3>Pro</h3><div class="desc">Control total</div><div class="price" id="proPriceWrap"><span class="old-price" id="proOld" style="display:none"></span><span id="proPrice">4,99 €</span><span> / mes</span></div><div class="pnote" id="proNote">Facturación mensual</div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Todo lo del plan Gratis</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Metas ilimitadas</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Presupuestos por categoría</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Exportación PDF</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>6 temas estacionales</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Búsqueda cross-month</li></ul><a href="https://finance-app-umber-seven.vercel.app/auth/login" target="_blank" class="btn btn-primary">Empezar con Pro</a></div>
-      <div class="price-card fade-in d3"><h3>Familia</h3><div class="desc">Para crecer juntos</div><div class="price" id="famPriceWrap"><span class="old-price" id="famOld" style="display:none"></span><span id="famPrice">9,99 €</span><span> / mes</span></div><div class="pnote" id="famNote">Hasta 3 miembros · Facturación mensual</div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Todo lo del plan Pro</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Hasta 3 cuentas familiares</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Cartera de inversiones</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Informes compartidos</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Soporte prioritario</li></ul><a href="https://finance-app-umber-seven.vercel.app/auth/login" target="_blank" class="btn btn-ghost">Elegir Familia</a></div>
+      <div class="price-card featured fade-in d2"><div class="popular">Más popular</div><h3>Pro</h3><div class="desc">Control total</div><div class="price" id="proPriceWrap"><span class="old-price" id="proOld">4,99 €</span><span class="price-val" id="proPrice">4,99 €</span><span> / mes</span></div><div class="pnote" id="proNote">Facturación mensual</div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Todo lo del plan Gratis</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Metas ilimitadas</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Presupuestos por categoría</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Exportación PDF</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Búsqueda cross-month</li></ul><a href="https://finance-app-umber-seven.vercel.app/auth/login" target="_blank" class="btn btn-primary">Empezar con Pro</a></div>
+      <div class="price-card fade-in d3"><h3>Familia</h3><div class="desc">Para crecer juntos</div><div class="price" id="famPriceWrap"><span class="old-price" id="famOld">9,99 €</span><span class="price-val" id="famPrice">9,99 €</span><span> / mes</span></div><div class="pnote" id="famNote">Hasta 3 miembros · Facturación mensual</div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Todo lo del plan Pro</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Hasta 3 cuentas familiares</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Cartera de inversiones</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Informes compartidos</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Soporte prioritario</li></ul><a href="https://finance-app-umber-seven.vercel.app/auth/login" target="_blank" class="btn btn-ghost">Elegir Familia</a></div>
     </div>
   </div>
 </section>
@@ -633,7 +317,6 @@ footer a:hover{color:var(--green)}
   <div class="container">
     <div class="footer-grid">
       <div><div class="footer-brand">🌿 Finanzas</div><p>Tu gestor de finanzas personales. Rápido, privado y con una interfaz que cuida cada detalle.</p></div>
-      <div><h4>Producto</h4><ul><li><a href="#features">Funciones</a></li><li><a href="#pricing">Precios</a></li><li><a href="#gallery">Galería</a></li><li><a href="#faq">FAQ</a></li></ul></div>
       <div><h4>Recursos</h4><ul><li><a href="#">Documentación</a></li><li><a href="#">Changelog</a></li><li><a href="#">Blog</a></li><li><a href="#">Estado del servicio</a></li></ul></div>
       <div><h4>Legal</h4><ul><li><a href="#">Términos de uso</a></li><li><a href="#">Política de privacidad</a></li><li><a href="#">Cookies</a></li><li><a href="#contact">Contacto</a></li></ul></div>
     </div>
@@ -641,55 +324,6 @@ footer a:hover{color:var(--green)}
   </div>
 </footer>
 
-<script>
-const nav=document.getElementById('navbar');
-window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40));
-function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
-function closeMenu(){document.getElementById('mobileMenu').classList.remove('open')}
-function toggleFaq(btn){const item=btn.parentElement;const w=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!w)item.classList.add('open')}
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
-document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
-
-// Billing toggle
-let isAnnual=false;
-function toggleBilling(){
-  isAnnual=!isAnnual;
-  document.getElementById('billingToggle').classList.toggle('annual',isAnnual);
-  document.getElementById('lblMonthly').classList.toggle('active',!isAnnual);
-  document.getElementById('lblAnnual').classList.toggle('active',isAnnual);
-  document.getElementById('saveBadge').classList.toggle('show',isAnnual);
-  // Pro pricing
-  const proPrice=document.getElementById('proPrice');
-  const proOld=document.getElementById('proOld');
-  const proNote=document.getElementById('proNote');
-  proPrice.textContent=isAnnual?'3,99 €':'4,99 €';
-  proOld.textContent='4,99 €';
-  proOld.style.display=isAnnual?'inline':'none';
-  proNote.textContent=isAnnual?'47,88 €/año · Facturación anual':'Facturación mensual';
-  // Family pricing
-  const famPrice=document.getElementById('famPrice');
-  const famOld=document.getElementById('famOld');
-  const famNote=document.getElementById('famNote');
-  famPrice.textContent=isAnnual?'7,99 €':'9,99 €';
-  famOld.textContent='9,99 €';
-  famOld.style.display=isAnnual?'inline':'none';
-  famNote.textContent=isAnnual?'Hasta 3 miembros · 95,88 €/año':'Hasta 3 miembros · Facturación mensual';
-}
-
-// Form handler
-function handleForm(btn){
-  const orig=btn.innerHTML;
-  btn.innerHTML='✓ Mensaje enviado';
-  btn.style.background='var(--green-dark)';
-  setTimeout(()=>{btn.innerHTML=orig;btn.style.background=''},2500);
-}
-
-// Budget bar animation
-const heroBar=document.querySelector('.mock-budget-fill, [id="heroBar"]');
-if(heroBar){
-  const barObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)heroBar.style.width='65%'})},{threshold:0.5});
-  barObs.observe(heroBar.parentElement);
-}
-</script>
+<script src="script.js"></script>
 </body>
 </html>
