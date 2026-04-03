@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de cookies — Spenfly</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231D9E75'/%3E%3Cpath d='M8 21 L22 10 L18 23 Z' fill='white'/%3E%3Cpath d='M22 10 L18 23 L19.5 16.5 Z' fill='rgba(0,0,0,0.18)'/%3E%3Cpath d='M8 21 L19.5 16.5 L22 10 Z' fill='rgba(255,255,255,0.45)'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .legal-hero{padding:120px 0 60px;border-bottom:1px solid var(--border)}
+  .legal-hero .section-label{display:block;margin-bottom:12px}
+  .legal-hero h1{font-size:clamp(32px,5vw,52px);font-weight:500;margin-bottom:16px}
+  .legal-hero .meta{font-size:14px;color:var(--text-muted)}
+  .legal-body{max-width:720px;margin:64px auto;padding:0 24px 100px}
+  .legal-body h2{font-family:'Outfit',sans-serif;font-size:18px;font-weight:700;color:var(--text);margin:48px 0 14px;padding-top:8px;border-top:1px solid var(--border)}
+  .legal-body h2:first-child{border-top:none;margin-top:0}
+  .legal-body p{font-size:15px;line-height:1.8;color:var(--text-soft);margin-bottom:14px}
+  .legal-body ul{list-style:none;margin-bottom:14px}
+  .legal-body ul li{font-size:15px;line-height:1.8;color:var(--text-soft);padding:4px 0 4px 20px;position:relative}
+  .legal-body ul li::before{content:'—';position:absolute;left:0;color:var(--green);font-weight:600}
+  .legal-body a{color:var(--green);text-decoration:none}
+  .legal-body a:hover{text-decoration:underline}
+  .legal-highlight{background:var(--green-light);border-left:3px solid var(--green);border-radius:0 12px 12px 0;padding:16px 20px;margin:24px 0}
+  .legal-highlight p{margin:0;color:var(--green-dark);font-weight:500}
+  .cookie-card{background:white;border:1.5px solid var(--border);border-radius:16px;padding:20px 24px;margin-bottom:16px}
+  .cookie-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+  .cookie-card-name{font-family:'Outfit',sans-serif;font-size:16px;font-weight:700;color:var(--text)}
+  .cookie-badge{font-size:11px;font-weight:700;padding:4px 12px;border-radius:100px;text-transform:uppercase;letter-spacing:0.05em}
+  .badge-required{background:var(--green-light);color:var(--green-dark)}
+  .badge-none{background:#f0ede8;color:var(--text-muted)}
+  .cookie-card p{font-size:14px;color:var(--text-soft);line-height:1.7;margin:0}
+  .cookie-card .cookie-meta{font-size:12px;color:var(--text-muted);margin-top:8px}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="container">
+    <a href="index.html" class="nav-brand">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="32" height="32" rx="9" fill="#1D9E75"/>
+        <path d="M8 21 L22 10 L18 23 Z" fill="white"/>
+        <path d="M22 10 L18 23 L19.5 16.5 Z" fill="rgba(0,0,0,0.18)"/>
+        <path d="M8 21 L19.5 16.5 L22 10 Z" fill="rgba(255,255,255,0.45)"/>
+        <line x1="22.5" y1="9.5" x2="25.5" y2="6.5" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" stroke-dasharray="1.5,1.5" stroke-linecap="round"/>
+        <circle cx="26.2" cy="5.8" r="1.2" fill="rgba(255,255,255,0.45)"/>
+      </svg>
+      <span class="brand-spen">spen</span><span class="brand-fly" style="margin-left:0">fly</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#features">Funciones</a></li>
+      <li><a href="index.html#pricing">Precios</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="index.html#contact">Contacto</a></li>
+    </ul>
+    <a href="https://app.spenfly.com/auth/login" target="_blank" class="btn btn-primary nav-cta nav-cta-desktop">Empezar gratis</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menú"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#features" onclick="closeMenu()">Funciones</a>
+    <a href="index.html#pricing" onclick="closeMenu()">Precios</a>
+    <a href="index.html#faq" onclick="closeMenu()">FAQ</a>
+    <a href="index.html#contact" onclick="closeMenu()">Contacto</a>
+    <a href="https://app.spenfly.com/auth/login" target="_blank" class="nav-cta" onclick="closeMenu()">Empezar gratis</a>
+  </div>
+</nav>
+
+<section class="legal-hero">
+  <div class="container">
+    <span class="section-label">Legal</span>
+    <h1>Política de cookies</h1>
+    <p class="meta">Última actualización: abril 2026</p>
+  </div>
+</section>
+
+<div class="legal-body">
+
+  <div class="legal-highlight">
+    <p>Spenfly no usa cookies de seguimiento, publicidad ni analítica de terceros. Solo utilizamos las cookies estrictamente necesarias para que la app funcione correctamente.</p>
+  </div>
+
+  <h2>¿Qué son las cookies?</h2>
+  <p>Las cookies son pequeños archivos de texto que un sitio web almacena en tu navegador cuando lo visitas. Permiten al sitio recordar información entre visitas, como si has iniciado sesión o tus preferencias de visualización.</p>
+  <p>La normativa europea (RGPD y Directiva ePrivacy) exige que los sitios web informen sobre el uso de cookies y, para las no esenciales, obtengan tu consentimiento previo.</p>
+
+  <h2>Cookies que usamos</h2>
+
+  <div class="cookie-card">
+    <div class="cookie-card-header">
+      <span class="cookie-card-name">Sesión de usuario</span>
+      <span class="cookie-badge badge-required">Necesaria</span>
+    </div>
+    <p>Cookie de autenticación gestionada por Supabase. Mantiene tu sesión iniciada mientras usas la app. Sin esta cookie no podríamos identificarte y tendrías que volver a iniciar sesión en cada visita.</p>
+    <p class="cookie-meta">Duración: hasta cierre de sesión o 7 días · Proveedor: Supabase · Tipo: HttpOnly, Secure</p>
+  </div>
+
+  <div class="cookie-card">
+    <div class="cookie-card-header">
+      <span class="cookie-card-name">Preferencias de interfaz</span>
+      <span class="cookie-badge badge-required">Necesaria</span>
+    </div>
+    <p>Almacena tus preferencias de tema (claro, oscuro, temporada) y configuración visual en localStorage. No se envía a ningún servidor, permanece solo en tu dispositivo.</p>
+    <p class="cookie-meta">Duración: persistente en tu dispositivo · Proveedor: Spenfly · Tipo: localStorage</p>
+  </div>
+
+  <div class="cookie-card">
+    <div class="cookie-card-header">
+      <span class="cookie-card-name">Cookies de analítica</span>
+      <span class="cookie-badge badge-none">No usamos</span>
+    </div>
+    <p>No utilizamos Google Analytics, Mixpanel, Hotjar ni ninguna otra herramienta de analítica de terceros. No rastreamos tu comportamiento dentro de la app.</p>
+  </div>
+
+  <div class="cookie-card">
+    <div class="cookie-card-header">
+      <span class="cookie-card-name">Cookies publicitarias</span>
+      <span class="cookie-badge badge-none">No usamos</span>
+    </div>
+    <p>Spenfly no muestra publicidad y no tiene ningún acuerdo con redes publicitarias. No instalamos ninguna cookie de seguimiento publicitario.</p>
+  </div>
+
+  <h2>Cookies de terceros en la landing</h2>
+  <p>La web de Spenfly (spenfly.com) carga la fuente tipográfica Outfit desde Google Fonts. Google puede registrar la solicitud de la fuente con tu dirección IP. Si prefieres evitarlo, puedes usar un bloqueador de fuentes externas en tu navegador.</p>
+  <p>No cargamos scripts de redes sociales, botones de compartir ni píxeles de seguimiento en ninguna de nuestras páginas.</p>
+
+  <h2>Cómo gestionar las cookies</h2>
+  <p>Dado que solo usamos cookies técnicas necesarias, no existe un panel de configuración de cookies en Spenfly — no hay nada que desactivar que no rompa la funcionalidad básica.</p>
+  <p>Si aun así quieres gestionar o eliminar las cookies desde tu navegador:</p>
+  <ul>
+    <li><strong>Chrome:</strong> Ajustes → Privacidad y seguridad → Cookies</li>
+    <li><strong>Firefox:</strong> Ajustes → Privacidad y seguridad → Cookies y datos del sitio</li>
+    <li><strong>Safari:</strong> Preferencias → Privacidad → Gestionar datos de sitios web</li>
+    <li><strong>Edge:</strong> Configuración → Privacidad, búsqueda y servicios → Cookies</li>
+  </ul>
+  <p>Ten en cuenta que eliminar la cookie de sesión cerrará tu sesión en Spenfly y tendrás que volver a iniciar sesión.</p>
+
+  <h2>Cambios en esta política</h2>
+  <p>Si en el futuro incorporamos nuevas cookies o tecnologías de seguimiento, actualizaremos esta página y te notificaremos con antelación. La fecha de última actualización aparece siempre al inicio.</p>
+
+  <h2>Contacto</h2>
+  <p>Si tienes preguntas sobre el uso de cookies en Spenfly escríbenos a <a href="mailto:hola@spenfly.com">hola@spenfly.com</a>.</p>
+
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-right:8px">
+            <rect width="32" height="32" rx="9" fill="#1D9E75"/>
+            <path d="M8 21 L22 10 L18 23 Z" fill="white"/>
+            <path d="M22 10 L18 23 L19.5 16.5 Z" fill="rgba(0,0,0,0.18)"/>
+            <path d="M8 21 L19.5 16.5 L22 10 Z" fill="rgba(255,255,255,0.45)"/>
+          </svg>
+          spenfly
+        </div>
+        <p>Tu gestor de finanzas personales. Rápido, privado y con una interfaz que cuida cada detalle.</p>
+      </div>
+      <div><h4>Recursos</h4><ul><li><a href="#">Documentación</a></li><li><a href="#">Changelog</a></li><li><a href="#">Blog</a></li></ul></div>
+      <div><h4>Legal</h4><ul><li><a href="terminos.html">Términos de uso</a></li><li><a href="privacidad.html">Política de privacidad</a></li><li><a href="cookies.html">Cookies</a></li><li><a href="index.html#contact">Contacto</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Spenfly. Todos los derechos reservados.</span></div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('navbar');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40));
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
+function closeMenu(){document.getElementById('mobileMenu').classList.remove('open')}
+</script>
+</body>
+</html>

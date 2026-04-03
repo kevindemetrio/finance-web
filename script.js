@@ -14,6 +14,15 @@ function toggleBilling(){
   document.getElementById('lblMonthly').classList.toggle('active',!isAnnual);
   document.getElementById('lblAnnual').classList.toggle('active',isAnnual);
   document.getElementById('saveBadge').classList.toggle('show',isAnnual);
+
+  // Basic pricing
+  const basicPrice=document.getElementById('basicPrice');
+  const basicOld=document.getElementById('basicOld');
+  const basicNote=document.getElementById('basicNote');
+  basicPrice.textContent=isAnnual?'2,99 €':'3,49 €';
+  basicOld.classList.toggle('show',isAnnual);
+  basicNote.textContent=isAnnual?'35,88 €/año · Facturación anual':'Facturación mensual';
+
   // Pro pricing
   const proPrice=document.getElementById('proPrice');
   const proOld=document.getElementById('proOld');
@@ -21,13 +30,14 @@ function toggleBilling(){
   proPrice.textContent=isAnnual?'3,99 €':'4,99 €';
   proOld.classList.toggle('show',isAnnual);
   proNote.textContent=isAnnual?'47,88 €/año · Facturación anual':'Facturación mensual';
+
   // Family pricing
   const famPrice=document.getElementById('famPrice');
   const famOld=document.getElementById('famOld');
   const famNote=document.getElementById('famNote');
-  famPrice.textContent=isAnnual?'7,99 €':'9,99 €';
+  famPrice.textContent=isAnnual?'8,49 €':'9,99 €';
   famOld.classList.toggle('show',isAnnual);
-  famNote.textContent=isAnnual?'Hasta 3 miembros · 95,88 €/año':'Hasta 3 miembros · Facturación mensual';
+  famNote.textContent=isAnnual?'Hasta 3 miembros · 101,88 €/año':'Hasta 3 miembros · Facturación mensual';
 }
 
 // Form handler

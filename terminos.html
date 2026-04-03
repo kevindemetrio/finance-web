@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Términos de uso — Spenfly</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231D9E75'/%3E%3Cpath d='M8 21 L22 10 L18 23 Z' fill='white'/%3E%3Cpath d='M22 10 L18 23 L19.5 16.5 Z' fill='rgba(0,0,0,0.18)'/%3E%3Cpath d='M8 21 L19.5 16.5 L22 10 Z' fill='rgba(255,255,255,0.45)'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .legal-hero{padding:120px 0 60px;border-bottom:1px solid var(--border)}
+  .legal-hero .section-label{display:block;margin-bottom:12px}
+  .legal-hero h1{font-size:clamp(32px,5vw,52px);font-weight:500;margin-bottom:16px}
+  .legal-hero .meta{font-size:14px;color:var(--text-muted)}
+  .legal-body{max-width:720px;margin:64px auto;padding:0 24px 100px}
+  .legal-body h2{font-family:'Outfit',sans-serif;font-size:18px;font-weight:700;color:var(--text);margin:48px 0 14px;padding-top:8px;border-top:1px solid var(--border)}
+  .legal-body h2:first-child{border-top:none;margin-top:0}
+  .legal-body p{font-size:15px;line-height:1.8;color:var(--text-soft);margin-bottom:14px}
+  .legal-body ul{list-style:none;margin-bottom:14px}
+  .legal-body ul li{font-size:15px;line-height:1.8;color:var(--text-soft);padding:4px 0 4px 20px;position:relative}
+  .legal-body ul li::before{content:'—';position:absolute;left:0;color:var(--green);font-weight:600}
+  .legal-body a{color:var(--green);text-decoration:none}
+  .legal-body a:hover{text-decoration:underline}
+  .legal-highlight{background:var(--green-light);border-left:3px solid var(--green);border-radius:0 12px 12px 0;padding:16px 20px;margin:24px 0}
+  .legal-highlight p{margin:0;color:var(--green-dark);font-weight:500}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="container">
+    <a href="index.html" class="nav-brand">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="32" height="32" rx="9" fill="#1D9E75"/>
+        <path d="M8 21 L22 10 L18 23 Z" fill="white"/>
+        <path d="M22 10 L18 23 L19.5 16.5 Z" fill="rgba(0,0,0,0.18)"/>
+        <path d="M8 21 L19.5 16.5 L22 10 Z" fill="rgba(255,255,255,0.45)"/>
+        <line x1="22.5" y1="9.5" x2="25.5" y2="6.5" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" stroke-dasharray="1.5,1.5" stroke-linecap="round"/>
+        <circle cx="26.2" cy="5.8" r="1.2" fill="rgba(255,255,255,0.45)"/>
+      </svg>
+      <span class="brand-spen">spen</span><span class="brand-fly" style="margin-left:0">fly</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#features">Funciones</a></li>
+      <li><a href="index.html#pricing">Precios</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="index.html#contact">Contacto</a></li>
+    </ul>
+    <a href="https://app.spenfly.com/auth/login" target="_blank" class="btn btn-primary nav-cta nav-cta-desktop">Empezar gratis</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menú"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#features" onclick="closeMenu()">Funciones</a>
+    <a href="index.html#pricing" onclick="closeMenu()">Precios</a>
+    <a href="index.html#faq" onclick="closeMenu()">FAQ</a>
+    <a href="index.html#contact" onclick="closeMenu()">Contacto</a>
+    <a href="https://app.spenfly.com/auth/login" target="_blank" class="nav-cta" onclick="closeMenu()">Empezar gratis</a>
+  </div>
+</nav>
+
+<section class="legal-hero">
+  <div class="container">
+    <span class="section-label">Legal</span>
+    <h1>Términos de uso</h1>
+    <p class="meta">Última actualización: abril 2026</p>
+  </div>
+</section>
+
+<div class="legal-body">
+
+  <div class="legal-highlight">
+    <p>Estos términos explican las reglas del uso de Spenfly. Al crear una cuenta aceptas estas condiciones. Si tienes dudas escríbenos a <a href="mailto:hola@spenfly.com">hola@spenfly.com</a>.</p>
+  </div>
+
+  <h2>1. Qué es Spenfly</h2>
+  <p>Spenfly es una aplicación web de gestión de finanzas personales que te permite registrar ingresos, gastos, metas de ahorro e inversiones de forma privada y segura. El servicio es operado por el equipo de Spenfly desde España.</p>
+
+  <h2>2. Cuenta de usuario</h2>
+  <p>Para usar Spenfly necesitas crear una cuenta con un email válido y una contraseña. Eres responsable de:</p>
+  <ul>
+    <li>Mantener tu contraseña segura y no compartirla con terceros</li>
+    <li>Toda la actividad que ocurra bajo tu cuenta</li>
+    <li>Notificarnos si detectas acceso no autorizado a tu cuenta</li>
+  </ul>
+  <p>Debes tener al menos 18 años para usar el servicio, o la mayoría de edad legal en tu país de residencia.</p>
+
+  <h2>3. Periodo de prueba y suscripción</h2>
+  <p>Al registrarte obtienes 14 días de acceso gratuito completo al plan Pro, sin necesidad de introducir ningún método de pago. Transcurrido ese periodo, la cuenta pasa a modo lectura hasta que contrates un plan de pago.</p>
+  <p>Los planes de pago se facturan de forma recurrente (mensual o anual) según el ciclo elegido. Puedes cancelar en cualquier momento desde los ajustes de tu cuenta. La cancelación tiene efecto al final del periodo facturado en curso.</p>
+
+  <h2>4. Uso aceptable</h2>
+  <p>Spenfly es una herramienta de uso personal. Queda prohibido:</p>
+  <ul>
+    <li>Usar el servicio con fines comerciales sin autorización expresa</li>
+    <li>Intentar acceder a datos de otros usuarios</li>
+    <li>Realizar ingeniería inversa o intentar extraer el código fuente</li>
+    <li>Usar scripts o bots para acceder al servicio de forma automatizada</li>
+    <li>Introducir datos falsos con el objetivo de manipular el sistema</li>
+  </ul>
+
+  <h2>5. Tus datos</h2>
+  <p>Todos los datos financieros que introduces en Spenfly son tuyos. No los vendemos ni los compartimos con terceros. Puedes exportar o eliminar tu información en cualquier momento. Consulta nuestra <a href="privacidad.html">Política de privacidad</a> para más detalle.</p>
+
+  <h2>6. Disponibilidad del servicio</h2>
+  <p>Nos esforzamos por mantener Spenfly disponible en todo momento, pero no garantizamos una disponibilidad del 100%. Podemos interrumpir el servicio temporalmente por mantenimiento, actualizaciones o causas fuera de nuestro control. En caso de interrupciones prolongadas, lo comunicaremos con la mayor antelación posible.</p>
+
+  <h2>7. Limitación de responsabilidad</h2>
+  <p>Spenfly es una herramienta de seguimiento financiero personal, no un servicio de asesoramiento financiero. Las decisiones económicas que tomes son de tu exclusiva responsabilidad. No nos hacemos responsables de pérdidas derivadas del uso de la aplicación.</p>
+
+  <h2>8. Modificaciones de los términos</h2>
+  <p>Podemos actualizar estos términos ocasionalmente. Cuando lo hagamos, actualizaremos la fecha al inicio de esta página y, si el cambio es significativo, te notificaremos por email. Continuar usando Spenfly tras la notificación implica aceptar los nuevos términos.</p>
+
+  <h2>9. Terminación</h2>
+  <p>Puedes eliminar tu cuenta en cualquier momento desde los ajustes. Nos reservamos el derecho de suspender o cancelar cuentas que infrinjan estos términos, previa comunicación siempre que sea posible.</p>
+
+  <h2>10. Legislación aplicable</h2>
+  <p>Estos términos se rigen por la legislación española. Para cualquier disputa, las partes se someten a los tribunales competentes de España, sin perjuicio de los derechos que la normativa de protección al consumidor pueda reconocerte en tu país de residencia.</p>
+
+  <h2>Contacto</h2>
+  <p>Si tienes preguntas sobre estos términos, escríbenos a <a href="mailto:hola@spenfly.com">hola@spenfly.com</a>. Respondemos en menos de 24 horas.</p>
+
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-right:8px">
+            <rect width="32" height="32" rx="9" fill="#1D9E75"/>
+            <path d="M8 21 L22 10 L18 23 Z" fill="white"/>
+            <path d="M22 10 L18 23 L19.5 16.5 Z" fill="rgba(0,0,0,0.18)"/>
+            <path d="M8 21 L19.5 16.5 L22 10 Z" fill="rgba(255,255,255,0.45)"/>
+          </svg>
+          spenfly
+        </div>
+        <p>Tu gestor de finanzas personales. Rápido, privado y con una interfaz que cuida cada detalle.</p>
+      </div>
+      <div><h4>Recursos</h4><ul><li><a href="#">Documentación</a></li><li><a href="#">Changelog</a></li><li><a href="#">Blog</a></li></ul></div>
+      <div><h4>Legal</h4><ul><li><a href="terminos.html">Términos de uso</a></li><li><a href="privacidad.html">Política de privacidad</a></li><li><a href="cookies.html">Cookies</a></li><li><a href="index.html#contact">Contacto</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Spenfly. Todos los derechos reservados.</span></div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('navbar');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40));
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
+function closeMenu(){document.getElementById('mobileMenu').classList.remove('open')}
+</script>
+</body>
+</html>

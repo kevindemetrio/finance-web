@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Finanzas — Tu gestor de finanzas personales</title>
+<title>Spenfly — Tu gestor de finanzas personales</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231D9E75'/%3E%3Cpath d='M8 21 L22 10 L18 23 Z' fill='white'/%3E%3Cpath d='M22 10 L18 23 L19.5 16.5 Z' fill='rgba(0,0,0,0.18)'/%3E%3Cpath d='M8 21 L19.5 16.5 L22 10 Z' fill='rgba(255,255,255,0.45)'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -15,8 +16,16 @@
 <nav id="navbar">
   <div class="container">
     <a href="#" class="nav-brand">
-      <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="8" fill="#1D9E75"/><path d="M8 10h12M8 14h8M8 18h10" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="21" cy="18" r="3" fill="#A7F3D0"/></svg>
-      Finanzas
+      <!-- Spenfly logo: avión de papel sobre fondo verde -->
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="32" height="32" rx="9" fill="#1D9E75"/>
+        <path d="M8 21 L22 10 L18 23 Z" fill="white"/>
+        <path d="M22 10 L18 23 L19.5 16.5 Z" fill="rgba(0,0,0,0.18)"/>
+        <path d="M8 21 L19.5 16.5 L22 10 Z" fill="rgba(255,255,255,0.45)"/>
+        <line x1="22.5" y1="9.5" x2="25.5" y2="6.5" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" stroke-dasharray="1.5,1.5" stroke-linecap="round"/>
+        <circle cx="26.2" cy="5.8" r="1.2" fill="rgba(255,255,255,0.45)"/>
+      </svg>
+      <span class="brand-spen">spen</span><span class="brand-fly" style="margin-left:0">fly</span>
     </a>
     <ul class="nav-links">
       <li><a href="#features">Funciones</a></li>
@@ -24,7 +33,7 @@
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contacto</a></li>
     </ul>
-    <a href="https://finance-app-umber-seven.vercel.app/auth/login" target="_blank" class="nav-cta nav-cta-desktop">Empezar gratis</a>
+    <a href="https://app.spenfly.com/auth/login" target="_blank" class="btn btn-primary nav-cta nav-cta-desktop">Empezar gratis</a>
     <button class="hamburger" onclick="toggleMenu()" aria-label="Menú"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
@@ -32,7 +41,7 @@
     <a href="#pricing" onclick="closeMenu()">Precios</a>
     <a href="#faq" onclick="closeMenu()">FAQ</a>
     <a href="#contact" onclick="closeMenu()">Contacto</a>
-    <a href="https://finance-app-umber-seven.vercel.app/auth/login" target="_blank" class="nav-cta" onclick="closeMenu()">Empezar gratis</a>
+    <a href="https://app.spenfly.com/auth/login" target="_blank" class="nav-cta" onclick="closeMenu()">Empezar gratis</a>
   </div>
 </nav>
 
@@ -47,13 +56,13 @@
       <h1>Controla tu dinero, <em>sin drama</em></h1>
       <p class="hero-desc">Ingresos, gastos, ahorros e inversiones — todo organizado mes a mes. Una interfaz limpia, rápida y pensada para tu día a día real.</p>
       <div class="hero-actions">
-        <a href="https://finance-app-umber-seven.vercel.app/auth/login" target="_blank" class="btn btn-primary">Empezar gratis <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="https://app.spenfly.com/auth/login" target="_blank" class="btn btn-primary">Empezar gratis <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         <a href="#features" class="btn btn-ghost">Descubre cómo</a>
       </div>
       <div class="hero-trust">
         <div class="trust-item"><div class="trust-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>RLS por usuario</div>
         <div class="trust-item"><div class="trust-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg></div>PWA instalable</div>
-        <div class="trust-item"><div class="trust-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>Setup &lt;2 min</div>
+        <div class="trust-item"><div class="trust-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>14 días gratis</div>
       </div>
     </div>
     <div class="hero-visual fade-in d2">
@@ -111,7 +120,7 @@
         </ul>
       </div>
       <div class="gui-mockup">
-        <div class="gui-titlebar"><div class="gui-dot" style="background:#ff5f57"></div><div class="gui-dot" style="background:#ffbd2e"></div><div class="gui-dot" style="background:#27c93f"></div><span class="title">finanzas.app — Marzo 2026</span></div>
+        <div class="gui-titlebar"><div class="gui-dot" style="background:#ff5f57"></div><div class="gui-dot" style="background:#ffbd2e"></div><div class="gui-dot" style="background:#27c93f"></div><span class="title">spenfly — Marzo 2026</span></div>
         <div class="gui-body">
           <div class="mock-metrics">
             <div class="mock-metric"><label>Ingresos</label><div class="val" style="color:var(--green)">3.380 €</div><div class="sub">+ 180 € arrastre</div></div>
@@ -135,28 +144,26 @@
     <div class="feature-block reverse fade-in">
       <div class="feature-text">
         <div class="feature-tag" style="background:var(--amber-light);color:var(--amber)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Presupuestos</div>
-        <h3>Controla cada euro por categoría</h3>
-        <p>Establece un presupuesto global para variables y límites individuales por categoría. Las barras cambian de color en tiempo real: verde → ámbar → rojo.</p>
+        <h3>Presupuestos que realmente funcionan</h3>
+        <p>Define un límite global de variables y desglósalo por categorías. Spenfly te avisa visualmente cuando te acercas al límite, para que puedas decidir a tiempo.</p>
         <ul class="feature-bullets">
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Presupuesto global + por categoría</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Barras visuales verde → ámbar → rojo</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Alertas de exceso automáticas</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Presupuesto global mensual con barra de progreso</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Límites por categoría personalizables</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Indicador de exceso en tiempo real</li>
         </ul>
       </div>
       <div class="gui-mockup">
-        <div class="gui-titlebar"><div class="gui-dot" style="background:#ff5f57"></div><div class="gui-dot" style="background:#ffbd2e"></div><div class="gui-dot" style="background:#27c93f"></div><span class="title">Presupuestos — Marzo 2026</span></div>
+        <div class="gui-titlebar"><div class="gui-dot" style="background:#ff5f57"></div><div class="gui-dot" style="background:#ffbd2e"></div><div class="gui-dot" style="background:#27c93f"></div><span class="title">Presupuesto — Marzo 2026</span></div>
         <div class="gui-body">
-          <div class="mock-section" style="margin-bottom:0">
-            <div class="mock-section-head"><div class="left"><div class="dot" style="background:var(--red)"></div><span class="title">Presupuestos</span><span class="cnt">4 definidos</span></div></div>
-            <div style="padding:12px 14px;border-bottom:1px solid #f5f2ed">
-              <div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:11px;font-weight:600;color:var(--text-soft)">Presupuesto mensual variables</span><span style="font-size:11px;font-weight:600;color:var(--amber)">65%</span></div>
-              <div style="display:flex;justify-content:space-between;margin-bottom:5px"><span style="font-size:10px;color:var(--amber);font-weight:600">485,00 € de 750,00 €</span></div>
-              <div class="mock-progress"><div class="mock-progress-fill" style="width:65%;background:linear-gradient(90deg,var(--green),var(--amber))"></div></div>
-            </div>
-            <div class="mock-budget-row"><div class="cat-dot" style="background:#0F6E56"></div><div class="info"><div class="cat-name">Alimentación</div><div class="cat-detail">187 € de 250 €</div></div><div class="bar"><div class="bar-fill" style="width:75%;background:var(--amber)"></div></div><div class="pct" style="color:var(--amber)">75%</div></div>
-            <div class="mock-budget-row"><div class="cat-dot" style="background:#A32D2D"></div><div class="info"><div class="cat-name">Ocio</div><div class="cat-detail">145 € de 120 €</div></div><div class="bar"><div class="bar-fill" style="width:100%;background:var(--red)"></div></div><div class="pct" style="color:var(--red)">121%</div></div>
-            <div class="mock-budget-row"><div class="cat-dot" style="background:#185FA5"></div><div class="info"><div class="cat-name">Transporte</div><div class="cat-detail">52 € de 100 €</div></div><div class="bar"><div class="bar-fill" style="width:52%;background:var(--green)"></div></div><div class="pct" style="color:var(--green)">52%</div></div>
-            <div class="mock-budget-row"><div class="cat-dot" style="background:#854F0B"></div><div class="info"><div class="cat-name">Viajes</div><div class="cat-detail">0 € de 200 €</div></div><div class="bar"><div class="bar-fill" style="width:0%"></div></div><div class="pct" style="color:var(--green)">0%</div></div>
+          <div class="mock-section">
+            <div class="mock-section-head"><div class="left"><div class="dot" style="background:var(--amber)"></div><span class="title">Presupuesto global</span></div><div class="actions"><span class="total" style="color:var(--amber)">485 € / 750 €</span></div></div>
+            <div style="padding:10px 14px"><div style="height:8px;background:#f0ede8;border-radius:4px;overflow:hidden"><div style="height:100%;width:65%;background:linear-gradient(90deg,var(--green),var(--amber));border-radius:4px"></div></div><div style="display:flex;justify-content:space-between;font-size:9px;color:var(--text-muted);margin-top:5px"><span>65% utilizado</span><span>265 € restante</span></div></div>
+          </div>
+          <div class="mock-section">
+            <div class="mock-section-head"><div class="left"><div class="dot" style="background:var(--green)"></div><span class="title">Por categoría</span></div></div>
+            <div class="mock-budget-row"><div class="cat-dot" style="background:#1D9E75"></div><div class="info"><div class="cat-name">Alimentación</div><div class="cat-detail">187 € / 250 €</div></div><div class="bar"><div class="bar-fill" style="width:75%;background:var(--green)"></div></div><div class="pct" style="color:var(--green)">75%</div></div>
+            <div class="mock-budget-row"><div class="cat-dot" style="background:#E24B4A"></div><div class="info"><div class="cat-name">Ocio</div><div class="cat-detail">145 € / 120 €</div></div><div class="bar"><div class="bar-fill" style="width:100%;background:var(--red)"></div></div><div class="pct" style="color:var(--red)">121%</div></div>
+            <div class="mock-budget-row"><div class="cat-dot" style="background:#378ADD"></div><div class="info"><div class="cat-name">Transporte</div><div class="cat-detail">52 € / 100 €</div></div><div class="bar"><div class="bar-fill" style="width:52%;background:var(--blue)"></div></div><div class="pct" style="color:var(--blue)">52%</div></div>
           </div>
         </div>
       </div>
@@ -165,25 +172,20 @@
     <!-- F3: Goals -->
     <div class="feature-block fade-in">
       <div class="feature-text">
-        <div class="feature-tag" style="background:var(--blue-light);color:var(--blue)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> Metas de ahorro</div>
+        <div class="feature-tag" style="background:var(--blue-light);color:var(--blue)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Metas</div>
         <h3>Ahorra con propósito</h3>
-        <p>Crea metas con nombre, objetivo, fecha límite y color personalizado. La app calcula cuándo alcanzarás cada meta basándose en tu media real de ahorro.</p>
+        <p>Crea metas de ahorro con objetivo y fecha límite. Añade cantidades cuando quieras y observa cómo avanza tu progreso mes a mes.</p>
         <ul class="feature-bullets">
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Barra de progreso con color personalizable</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Proyección inteligente de fecha estimada</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Métricas: activas, completadas, total</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Barra de progreso visual por meta</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Fecha objetivo y días restantes</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Historial de aportaciones por meta</li>
         </ul>
       </div>
       <div class="gui-mockup">
         <div class="gui-titlebar"><div class="gui-dot" style="background:#ff5f57"></div><div class="gui-dot" style="background:#ffbd2e"></div><div class="gui-dot" style="background:#27c93f"></div><span class="title">Metas de ahorro</span></div>
         <div class="gui-body">
-          <div class="mock-metrics" style="grid-template-columns:repeat(3,1fr);margin-bottom:14px">
-            <div class="mock-metric"><label>Activas</label><div class="val">2</div></div>
-            <div class="mock-metric"><label>Completadas</label><div class="val" style="color:var(--green)">1</div></div>
-            <div class="mock-metric"><label>Total objetivo</label><div class="val">15.000 €</div></div>
-          </div>
-          <div class="mock-goal"><div class="mock-goal-header"><span class="name">🏖️ Vacaciones Japón</span><span class="target">4.000 €</span></div><div class="mock-goal-bar"><div class="mock-goal-fill" style="width:62%;background:linear-gradient(90deg,#D85A30,#BA7517)"></div></div><div class="mock-goal-footer"><span>2.480 € ahorrados</span><span>Estimado: Ago 2026</span></div></div>
-          <div class="mock-goal"><div class="mock-goal-header"><span class="name">🚗 Coche nuevo</span><span class="target">8.000 €</span></div><div class="mock-goal-bar"><div class="mock-goal-fill" style="width:28%;background:linear-gradient(90deg,#378ADD,#185FA5)"></div></div><div class="mock-goal-footer"><span>2.240 € ahorrados</span><span>Estimado: Mar 2027</span></div></div>
+          <div class="mock-goal"><div class="mock-goal-header"><span class="name">✈️ Viaje a Japón</span><span class="target">3.500 €</span></div><div class="mock-goal-bar"><div class="mock-goal-fill" style="width:62%;background:linear-gradient(90deg,var(--blue),var(--green))"></div></div><div class="mock-goal-footer"><span>2.170 € ahorrados</span><span style="color:var(--blue)">127 días restantes</span></div></div>
+          <div class="mock-goal"><div class="mock-goal-header"><span class="name">🛻 Coche nuevo</span><span class="target">8.000 €</span></div><div class="mock-goal-bar"><div class="mock-goal-fill" style="width:34%;background:linear-gradient(90deg,var(--amber),var(--orange))"></div></div><div class="mock-goal-footer"><span>2.720 € ahorrados</span><span style="color:var(--amber)">11 meses restantes</span></div></div>
           <div class="mock-goal" style="opacity:0.6"><div class="mock-goal-header"><span class="name">🛡️ Fondo emergencia</span><span class="target">3.000 €</span></div><div class="mock-goal-bar"><div class="mock-goal-fill" style="width:100%;background:var(--green)"></div></div><div class="mock-goal-footer"><span>3.000 € ✓ completada</span><span style="color:var(--green)">Meta alcanzada</span></div></div>
         </div>
       </div>
@@ -205,7 +207,7 @@
         <div class="gui-titlebar"><div class="gui-dot" style="background:#ff5f57"></div><div class="gui-dot" style="background:#ffbd2e"></div><div class="gui-dot" style="background:#27c93f"></div><span class="title">Cartera de inversiones</span></div>
         <div class="gui-body">
           <div style="background:white;border-radius:12px;border:1px solid #f0ede8;padding:12px 14px;display:flex;justify-content:space-between;margin-bottom:12px"><span style="font-size:13px;font-weight:500;color:var(--text-soft)">Total invertido</span><span style="font-size:16px;font-weight:700;color:var(--green)">12.650 €</span></div>
-          <div class="mock-inv-cat"><div class="mock-inv-head" style="background:#FAEEDA"><span class="cat" style="color:var(--amber)">📈 Renta variable</span><span class="total" style="color:var(--amber)">7.200 €</span></div><div class="mock-inv-item"><div class="name">MSCI World ETF</div><div class="isin">IE00B4L5Y983 · 4 aportaciones</div><div class="contribs">Última: 450 € el 01/03/2026</div></div><div class="mock-inv-item"><div class="name">S&P 500 ETF</div><div class="isin">IE00B5BMR087 · 3 aportaciones</div></div></div>
+          <div class="mock-inv-cat"><div class="mock-inv-head" style="background:#FAEEDA"><span class="cat" style="color:var(--amber)">📈 Renta variable</span><span class="total" style="color:var(--amber)">7.200 €</span></div><div class="mock-inv-item"><div class="name">MSCI World ETF</div><div class="isin">IE00B4L5Y983 · 4 aportaciones</div><div class="contribs">Última: 450 € el 01/03/2026</div></div><div class="mock-inv-item"><div class="name">S&amp;P 500 ETF</div><div class="isin">IE00B5BMR087 · 3 aportaciones</div></div></div>
           <div class="mock-inv-cat"><div class="mock-inv-head" style="background:#E6F1FB"><span class="cat" style="color:var(--blue)">📊 Renta fija</span><span class="total" style="color:var(--blue)">3.450 €</span></div><div class="mock-inv-item"><div class="name">Letras del Tesoro</div><div class="isin">ES0L02506068 · 2 aportaciones</div></div></div>
           <div class="mock-inv-cat"><div class="mock-inv-head" style="background:#E1F5EE"><span class="cat" style="color:var(--green)">🛡️ Fondo de emergencia</span><span class="total" style="color:var(--green)">2.000 €</span></div><div class="mock-inv-item"><div class="name">Cuenta remunerada Trade Republic</div><div class="isin">1 aportación</div></div></div>
         </div>
@@ -237,7 +239,7 @@
               <div class="mock-pdf-bar"><span class="lbl">Ahorros</span><div class="track"><div class="fill" style="width:20%;background:var(--blue)"></div></div><span class="val" style="color:var(--blue)">650 €</span></div>
               <div class="mock-pdf-sep"></div>
               <div style="display:flex;justify-content:space-between;font-size:11px;font-weight:600;padding:4px 0"><span style="color:var(--text-soft)">Balance del mes</span><span style="color:var(--green)">+1.145 €</span></div>
-              <div class="mock-pdf-footer">Página 1 de 3 · Finanzas</div>
+              <div class="mock-pdf-footer">Página 1 de 3 · Spenfly</div>
             </div>
             <div class="mock-pdf-col">
               <div style="font-size:11px;font-weight:700;margin-bottom:10px;padding-left:8px;border-left:3px solid var(--green);color:var(--text)">Gastos por categoría</div>
@@ -245,7 +247,7 @@
               <div class="mock-pdf-sep"></div>
               <div style="font-size:11px;font-weight:700;margin-bottom:10px;padding-left:8px;border-left:3px solid var(--amber);color:var(--text)">Gastos fijos</div>
               <table class="mock-pdf-table"><tr><th>Concepto</th><th>Importe</th><th>Estado</th></tr><tr><td>Alquiler</td><td>650 €</td><td style="color:var(--green)">✓ Cobrado</td></tr><tr><td>Seguro coche</td><td>95 €</td><td style="color:var(--red)">✗ Pendiente</td></tr><tr><td>Internet</td><td>35 €</td><td style="color:var(--green)">✓ Cobrado</td></tr><tr><td>Gimnasio</td><td>40 €</td><td style="color:var(--green)">✓ Cobrado</td></tr></table>
-              <div class="mock-pdf-footer">Página 2 de 3 · Finanzas</div>
+              <div class="mock-pdf-footer">Página 2 de 3 · Spenfly</div>
             </div>
           </div>
         </div>
@@ -258,18 +260,87 @@
 <!-- PRICING -->
 <section id="pricing" class="pricing-section section-pad">
   <div class="container">
-    <div class="fade-in" style="text-align:center"><div class="section-label">Precios</div><h2 class="section-title">Simple y transparente</h2><p class="section-subtitle" style="margin-inline:auto">Sin letra pequeña. Empieza gratis y escala cuando lo necesites.</p>
+    <div class="fade-in" style="text-align:center">
+      <div class="section-label">Precios</div>
+      <h2 class="section-title">Simple y transparente</h2>
+      <p class="section-subtitle" style="margin-inline:auto">Sin letra pequeña. <strong>14 días de prueba gratis</strong> con acceso Pro completo — sin tarjeta.</p>
+      <div class="trial-banner fade-in">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        14 días gratis con todas las funciones Pro — sin introducir tarjeta
+      </div>
       <div class="billing-toggle">
         <span id="lblMonthly" class="active">Mensual</span>
         <div class="toggle-track" id="billingToggle" onclick="toggleBilling()"><div class="toggle-knob"></div></div>
         <span id="lblAnnual">Anual</span>
-        <span class="billing-save" id="saveBadge">Ahorra 20%</span>
+        <span class="billing-save" id="saveBadge">Hasta 20% de ahorro</span>
       </div>
     </div>
     <div class="pricing-grid">
-      <div class="price-card fade-in d1"><h3>Gratis</h3><div class="desc">Para empezar</div><div class="price">0 €<span> / mes</span></div><div class="pnote">Gratis para siempre</div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Vista mensual completa</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Presupuesto global</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Hasta 3 metas</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Temas claro y oscuro</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>PWA instalable</li></ul><a href="https://finance-app-umber-seven.vercel.app/auth/login" target="_blank" class="btn btn-ghost">Empezar gratis</a></div>
-      <div class="price-card featured fade-in d2"><div class="popular">Más popular</div><h3>Pro</h3><div class="desc">Control total</div><div class="price" id="proPriceWrap"><span class="old-price" id="proOld">4,99 €</span><span class="price-val" id="proPrice">4,99 €</span><span> / mes</span></div><div class="pnote" id="proNote">Facturación mensual</div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Todo lo del plan Gratis</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Metas ilimitadas</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Presupuestos por categoría</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Exportación PDF</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Búsqueda cross-month</li></ul><a href="https://finance-app-umber-seven.vercel.app/auth/login" target="_blank" class="btn btn-primary">Empezar con Pro</a></div>
-      <div class="price-card fade-in d3"><h3>Familia</h3><div class="desc">Para crecer juntos</div><div class="price" id="famPriceWrap"><span class="old-price" id="famOld">9,99 €</span><span class="price-val" id="famPrice">9,99 €</span><span> / mes</span></div><div class="pnote" id="famNote">Hasta 3 miembros · Facturación mensual</div><ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Todo lo del plan Pro</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Hasta 3 cuentas familiares</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Cartera de inversiones</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Informes compartidos</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Soporte prioritario</li></ul><a href="https://finance-app-umber-seven.vercel.app/auth/login" target="_blank" class="btn btn-ghost">Elegir Familia</a></div>
+
+      <!-- BASIC -->
+      <div class="price-card fade-in d1">
+        <h3>Basic</h3>
+        <div class="desc">Para empezar bien</div>
+        <div class="price">
+          <span class="old-price" id="basicOld">3,49 €</span>
+          <span class="price-val" id="basicPrice">3,49 €</span>
+          <span> / mes</span>
+        </div>
+        <div class="pnote" id="basicNote">Facturación mensual</div>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Vista mensual completa</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Gastos fijos y variables</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Presupuesto global</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Hasta 3 metas de ahorro</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Temas claro y oscuro</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>PWA instalable</li>
+        </ul>
+        <a href="https://app.spenfly.com/auth/login" target="_blank" class="btn btn-ghost">Empezar prueba gratis</a>
+      </div>
+
+      <!-- PRO -->
+      <div class="price-card featured fade-in d2">
+        <div class="popular">Más popular</div>
+        <h3>Pro</h3>
+        <div class="desc">Control total</div>
+        <div class="price" id="proPriceWrap">
+          <span class="old-price" id="proOld">4,99 €</span>
+          <span class="price-val" id="proPrice">4,99 €</span>
+          <span> / mes</span>
+        </div>
+        <div class="pnote" id="proNote">Facturación mensual</div>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Todo lo del plan Basic</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Metas ilimitadas</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Presupuestos por categoría</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Exportación PDF</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Cartera de inversiones</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Búsqueda cross-month</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Temas de temporada</li>
+        </ul>
+        <a href="https://app.spenfly.com/auth/login" target="_blank" class="btn btn-primary">Empezar prueba gratis</a>
+      </div>
+
+      <!-- FAMILY -->
+      <div class="price-card price-card-coming fade-in d3">
+        <div class="coming-soon-badge">Próximamente</div>
+        <h3>Family</h3>
+        <div class="desc">Para crecer juntos</div>
+        <div class="price" id="famPriceWrap">
+          <span class="old-price" id="famOld">9,99 €</span>
+          <span class="price-val" id="famPrice">9,99 €</span>
+          <span> / mes</span>
+        </div>
+        <div class="pnote" id="famNote">Hasta 3 miembros · Facturación mensual</div>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Todo lo del plan Pro</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Hasta 3 cuentas familiares</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Informes compartidos</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Soporte prioritario</li>
+        </ul>
+        <button class="btn btn-ghost" disabled style="opacity:0.45;cursor:not-allowed;width:100%;justify-content:center">Disponible pronto</button>
+      </div>
+
     </div>
   </div>
 </section>
@@ -279,18 +350,23 @@
   <div class="container">
     <div class="fade-in" style="text-align:center"><div class="section-label">FAQ</div><h2 class="section-title">Preguntas frecuentes</h2></div>
     <div class="faq-list">
+      <div class="faq-item fade-in"><button class="faq-q" onclick="toggleFaq(this)">¿Necesito tarjeta para el periodo de prueba?<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>No. Los 14 días de prueba son completamente gratuitos y no requieren ningún método de pago. Solo necesitas un email para crear tu cuenta.</p></div></div>
+      <div class="faq-item fade-in"><button class="faq-q" onclick="toggleFaq(this)">¿Qué pasa cuando termina la prueba?<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Tus datos siempre estarán seguros. Si no contratas un plan, la app pasará a modo lectura: podrás ver todo tu historial, pero no añadir nuevas entradas. Sin cargos sorpresa.</p></div></div>
       <div class="faq-item fade-in"><button class="faq-q" onclick="toggleFaq(this)">¿Mis datos están seguros?<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Sí. Supabase aplica Row Level Security: cada usuario solo ve sus datos. Conexión HTTPS cifrada siempre.</p></div></div>
-      <div class="faq-item fade-in"><button class="faq-q" onclick="toggleFaq(this)">¿Funciona en móvil?<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Sí. PWA mobile-first que se instala como app nativa en iOS y Android.</p></div></div>
-      <div class="faq-item fade-in"><button class="faq-q" onclick="toggleFaq(this)">¿Puedo cambiar de plan?<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Sí, en cualquier momento. El cambio se prorratea automáticamente.</p></div></div>
+      <div class="faq-item fade-in"><button class="faq-q" onclick="toggleFaq(this)">¿Funciona en móvil?<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Sí. PWA mobile-first que se instala como app nativa en iOS y Android. Sin pasar por App Store.</p></div></div>
+      <div class="faq-item fade-in"><button class="faq-q" onclick="toggleFaq(this)">¿Puedo cambiar de plan?<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Sí, en cualquier momento desde los ajustes de tu cuenta. El cambio se prorratea automáticamente.</p></div></div>
       <div class="faq-item fade-in"><button class="faq-q" onclick="toggleFaq(this)">¿Cómo se genera el PDF?<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>100% en tu dispositivo con jsPDF. No enviamos datos a ningún servidor externo.</p></div></div>
-      <div class="faq-item fade-in"><button class="faq-q" onclick="toggleFaq(this)">¿Puedo exportar mis datos?<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Sí. PDF mensual + acceso directo a tu base de datos Supabase. Tus datos siempre son tuyos.</p></div></div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="section-pad" style="padding-top:40px">
-  <div class="cta-banner fade-in"><h2>Empieza a controlar tu dinero hoy</h2><p>Crea tu cuenta gratis en 30 segundos. Sin tarjeta, sin compromisos.</p><a href="https://finance-app-umber-seven.vercel.app/auth/login" target="_blank" class="btn btn-primary" style="font-size:17px;padding:16px 36px">Crear cuenta gratis <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+  <div class="cta-banner fade-in">
+    <h2>Empieza a controlar tu dinero hoy</h2>
+    <p>14 días gratis con Pro completo. Sin tarjeta, sin compromisos.</p>
+    <a href="https://app.spenfly.com/auth/login" target="_blank" class="btn btn-primary" style="font-size:17px;padding:16px 36px">Crear cuenta gratis <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
 </section>
 
 <!-- CONTACT -->
@@ -299,8 +375,8 @@
     <div class="fade-in" style="text-align:center"><div class="section-label">Contacto</div><h2 class="section-title">¿Hablamos?</h2><p class="section-subtitle" style="margin-inline:auto">Preguntas, sugerencias o simplemente un saludo.</p></div>
     <div class="contact-grid fade-in">
       <div class="contact-info"><h3>Escríbenos</h3><p>Respondemos en menos de 24 horas. También puedes encontrarnos en redes sociales.</p>
-        <a href="mailto:hola@finanzas.app" class="contact-link"><div class="contact-link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>hola@finanzas.app</a>
-        <a href="#" class="contact-link"><div class="contact-link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></div>@finanzas_app</a>
+        <a href="mailto:hola@spenfly.com" class="contact-link"><div class="contact-link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>hola@spenfly.com</a>
+        <a href="#" class="contact-link"><div class="contact-link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></div>@spenfly_app</a>
       </div>
       <div class="contact-form">
         <div class="form-row"><div class="form-group"><label>Nombre</label><input type="text" placeholder="Tu nombre"></div><div class="form-group"><label>Email</label><input type="email" placeholder="tu@email.com"></div></div>
@@ -316,11 +392,24 @@
 <footer>
   <div class="container">
     <div class="footer-grid">
-      <div><div class="footer-brand">🌿 Finanzas</div><p>Tu gestor de finanzas personales. Rápido, privado y con una interfaz que cuida cada detalle.</p></div>
+      <div>
+        <div class="footer-brand">
+          <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-right:8px">
+            <rect width="32" height="32" rx="9" fill="#1D9E75"/>
+            <path d="M8 21 L22 10 L18 23 Z" fill="white"/>
+            <path d="M22 10 L18 23 L19.5 16.5 Z" fill="rgba(0,0,0,0.18)"/>
+            <path d="M8 21 L19.5 16.5 L22 10 Z" fill="rgba(255,255,255,0.45)"/>
+            <line x1="22.5" y1="9.5" x2="25" y2="7" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" stroke-dasharray="1.5,1.5" stroke-linecap="round"/>
+            <circle cx="25.5" cy="6.5" r="1.2" fill="rgba(255,255,255,0.45)"/>
+          </svg>
+          spenfly
+        </div>
+        <p>Tu gestor de finanzas personales. Rápido, privado y con una interfaz que cuida cada detalle.</p>
+      </div>
       <div><h4>Recursos</h4><ul><li><a href="#">Documentación</a></li><li><a href="#">Changelog</a></li><li><a href="#">Blog</a></li><li><a href="#">Estado del servicio</a></li></ul></div>
-      <div><h4>Legal</h4><ul><li><a href="#">Términos de uso</a></li><li><a href="#">Política de privacidad</a></li><li><a href="#">Cookies</a></li><li><a href="#contact">Contacto</a></li></ul></div>
+      <div><h4>Legal</h4><ul><li><a href="terminos.html">Términos de uso</a></li><li><a href="privacidad.html">Política de privacidad</a></li><li><a href="cookies.html">Cookies</a></li><li><a href="#contact">Contacto</a></li></ul></div>
     </div>
-    <div class="footer-bottom"><span>© 2026 Finanzas. Todos los derechos reservados.</span><span>Hecho con 💚 para tu tranquilidad financiera</span></div>
+    <div class="footer-bottom"><span>© 2026 Spenfly. Todos los derechos reservados.</span></div>
   </div>
 </footer>
 
