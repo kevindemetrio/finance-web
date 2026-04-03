@@ -1,0 +1,60 @@
+<svg width="1500" height="500" viewBox="0 0 1500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Fondo claro -->
+  <rect width="1500" height="500" fill="#F7F6F3"/>
+
+  <!-- Bloque verde izquierdo (diagonal) -->
+  <polygon points="0,0 560,0 445,500 0,500" fill="#1D9E75"/>
+
+  <!-- Separador diagonal sutil -->
+  <line x1="445" y1="500" x2="560" y2="0" stroke="#0F6E56" stroke-width="2" opacity="0.35"/>
+
+  <!-- Avión de papel centrado en zona verde (cx=220, cy=250) -->
+  <!-- Escala ~0.42 del logo 512: tip=(416,190) tail=(96,340) wing=(326,406) fold=(308,272) -->
+  <!-- Mapeado: cx=220, cy=250, scale=0.42, origin=256,256 -->
+  <!-- tip  = (220 + (416-256)*0.42, 250 + (190-256)*0.42) = (220+67, 250-28) = (287, 222) -->
+  <!-- tail = (220 + (96-256)*0.42,  250 + (340-256)*0.42) = (220-67, 250+35) = (153, 285) -->
+  <!-- wing = (220 + (326-256)*0.42, 250 + (406-256)*0.42) = (220+29, 250+63) = (249, 313) -->
+  <!-- fold = (220 + (308-256)*0.42, 250 + (272-256)*0.42) = (220+22, 250+7)  = (242, 257) -->
+  <polygon points="153,285 287,222 249,313" fill="white"/>
+  <polygon points="153,285 249,313 242,257" fill="black" opacity="0.20"/>
+  <polygon points="153,285 287,222 242,257" fill="white" opacity="0.40"/>
+
+  <!-- WORDMARK: un solo bloque de texto con tspan para evitar solapamiento -->
+  <!-- text-anchor="middle" centrado en x=1030 (mitad de la zona 560..1500) -->
+  <text
+    x="1030"
+    y="298"
+    font-family="Arial Black, 'Arial Bold', Impact, sans-serif"
+    font-size="148"
+    font-weight="900"
+    text-anchor="middle"
+    letter-spacing="-3"
+  ><tspan fill="#1A1A1A">spen</tspan><tspan fill="#1D9E75">fly</tspan></text>
+
+  <!-- Línea verde bajo el wordmark -->
+  <!-- centrada: x=1030 - 32 = 998 -->
+  <rect x="968" y="322" width="64" height="5" rx="2.5" fill="#1D9E75"/>
+
+  <!-- Tagline centrada en la zona derecha -->
+  <text
+    x="1030"
+    y="372"
+    font-family="Arial, sans-serif"
+    font-size="28"
+    fill="#999999"
+    text-anchor="middle"
+    font-weight="400"
+  >Tu gestor de finanzas personales</text>
+
+  <!-- URL esquina inferior derecha -->
+  <text
+    x="1460"
+    y="472"
+    font-family="Arial, sans-serif"
+    font-size="22"
+    fill="#BBBBBB"
+    text-anchor="end"
+  >spenfly.com</text>
+
+</svg>

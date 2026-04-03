@@ -3,12 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Spenfly — Tu gestor de finanzas personales</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231D9E75'/%3E%3Cpath d='M8 21 L22 10 L18 23 Z' fill='white'/%3E%3Cpath d='M22 10 L18 23 L19.5 16.5 Z' fill='rgba(0,0,0,0.18)'/%3E%3Cpath d='M8 21 L19.5 16.5 L22 10 Z' fill='rgba(255,255,255,0.45)'/%3E%3C/svg%3E">
+
+<!-- SEO primario -->
+<title>Spenfly — App de finanzas personales | Gasta menos. Vive más.</title>
+<meta name="description" content="Spenfly es la app de finanzas personales para controlar ingresos, gastos, presupuestos, ahorros e inversiones mes a mes. Privada, rápida y sin anuncios. Prueba gratis 14 días.">
+<meta name="keywords" content="spenfly, spendfly, spenfly app, finanzas personales, control de gastos, gestor de gastos, presupuesto personal, ahorros, inversiones, app finanzas españa">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Spenfly">
+<link rel="canonical" href="https://spenfly.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://spenfly.com/">
+<meta property="og:site_name" content="Spenfly">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Spenfly — App de finanzas personales">
+<meta property="og:description" content="Controla ingresos, gastos, presupuestos, ahorros e inversiones mes a mes. Privado, rápido y sin anuncios. 14 días gratis.">
+<meta property="og:image" content="https://spenfly.com/media/banner.svg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Spenfly — App de finanzas personales">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@spenfly_app">
+<meta name="twitter:title" content="Spenfly — App de finanzas personales">
+<meta name="twitter:description" content="Controla ingresos, gastos, presupuestos, ahorros e inversiones mes a mes. Privado, rápido y sin anuncios.">
+<meta name="twitter:image" content="https://spenfly.com/media/banner.svg">
+
+<!-- PWA -->
+<link rel="icon" type="image/svg+xml" href="media/logo.svg">
+<link rel="apple-touch-icon" href="media/logo.svg">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1D9E75">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Spenfly">
+
+<!-- Fuentes -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Spenfly",
+  "alternateName": ["SpendFly", "Spend Fly", "Spenfly app"],
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web, iOS, Android",
+  "url": "https://spenfly.com",
+  "description": "App de finanzas personales para controlar ingresos, gastos, presupuestos, ahorros e inversiones mes a mes. Privada, rápida y sin anuncios.",
+  "inLanguage": "es",
+  "screenshot": "https://spenfly.com/media/banner.svg",
+  "featureList": [
+    "Control de gastos e ingresos",
+    "Presupuestos por categoría",
+    "Metas de ahorro",
+    "Cartera de inversiones",
+    "Exportación PDF client-side",
+    "PWA instalable en iOS y Android"
+  ],
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Basic",
+      "price": "3.49",
+      "priceCurrency": "EUR",
+      "description": "Plan básico con vista mensual completa, gastos fijos y variables, presupuesto global y hasta 3 metas de ahorro."
+    },
+    {
+      "@type": "Offer",
+      "name": "Pro",
+      "price": "4.99",
+      "priceCurrency": "EUR",
+      "description": "Plan Pro con metas ilimitadas, presupuestos por categoría, exportación PDF y cartera de inversiones."
+    }
+  ],
+  "author": {
+    "@type": "Organization",
+    "name": "Spenfly",
+    "url": "https://spenfly.com",
+    "email": "hola@spenfly.com",
+    "sameAs": ["https://twitter.com/spenfly_app"]
+  }
+}
+</script>
 </head>
 <body>
 
@@ -16,16 +100,8 @@
 <nav id="navbar">
   <div class="container">
     <a href="#" class="nav-brand">
-      <!-- Spenfly logo: avión de papel sobre fondo verde -->
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="32" height="32" rx="9" fill="#1D9E75"/>
-        <path d="M8 21 L22 10 L18 23 Z" fill="white"/>
-        <path d="M22 10 L18 23 L19.5 16.5 Z" fill="rgba(0,0,0,0.18)"/>
-        <path d="M8 21 L19.5 16.5 L22 10 Z" fill="rgba(255,255,255,0.45)"/>
-        <line x1="22.5" y1="9.5" x2="25.5" y2="6.5" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" stroke-dasharray="1.5,1.5" stroke-linecap="round"/>
-        <circle cx="26.2" cy="5.8" r="1.2" fill="rgba(255,255,255,0.45)"/>
-      </svg>
-      <span class="brand-spen">spen</span><span class="brand-fly" style="margin-left:0">fly</span>
+      <img src="media/logo.svg" width="32" height="32" alt="Spenfly logo">
+      <span class="brand-spen">Spen</span><span class="brand-fly">fly</span>
     </a>
     <ul class="nav-links">
       <li><a href="#features">Funciones</a></li>
@@ -53,7 +129,7 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
         Privado · Seguro · Sin anuncios
       </div>
-      <h1>Controla tu dinero, <em>sin drama</em></h1>
+      <h1>Gasta menos. <em>Vive más.</em></h1>
       <p class="hero-desc">Ingresos, gastos, ahorros e inversiones — todo organizado mes a mes. Una interfaz limpia, rápida y pensada para tu día a día real.</p>
       <div class="hero-actions">
         <a href="https://app.spenfly.com/auth/login" target="_blank" class="btn btn-primary">Empezar gratis <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
@@ -356,6 +432,7 @@
       <div class="faq-item fade-in"><button class="faq-q" onclick="toggleFaq(this)">¿Funciona en móvil?<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Sí. PWA mobile-first que se instala como app nativa en iOS y Android. Sin pasar por App Store.</p></div></div>
       <div class="faq-item fade-in"><button class="faq-q" onclick="toggleFaq(this)">¿Puedo cambiar de plan?<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Sí, en cualquier momento desde los ajustes de tu cuenta. El cambio se prorratea automáticamente.</p></div></div>
       <div class="faq-item fade-in"><button class="faq-q" onclick="toggleFaq(this)">¿Cómo se genera el PDF?<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>100% en tu dispositivo con jsPDF. No enviamos datos a ningún servidor externo.</p></div></div>
+      <div class="faq-item fade-in"><button class="faq-q" onclick="toggleFaq(this)">¿Es Spenfly lo mismo que Spendfly?<svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-a"><p>Sí. Spenfly (también escrito como Spendfly o SpendFly) es la misma app de finanzas personales. El nombre oficial es <strong>Spenfly</strong>, pero ambas búsquedas te llevan al mismo sitio.</p></div></div>
     </div>
   </div>
 </section>
@@ -394,14 +471,7 @@
     <div class="footer-grid">
       <div>
         <div class="footer-brand">
-          <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-right:8px">
-            <rect width="32" height="32" rx="9" fill="#1D9E75"/>
-            <path d="M8 21 L22 10 L18 23 Z" fill="white"/>
-            <path d="M22 10 L18 23 L19.5 16.5 Z" fill="rgba(0,0,0,0.18)"/>
-            <path d="M8 21 L19.5 16.5 L22 10 Z" fill="rgba(255,255,255,0.45)"/>
-            <line x1="22.5" y1="9.5" x2="25" y2="7" stroke="rgba(255,255,255,0.5)" stroke-width="1.2" stroke-dasharray="1.5,1.5" stroke-linecap="round"/>
-            <circle cx="25.5" cy="6.5" r="1.2" fill="rgba(255,255,255,0.45)"/>
-          </svg>
+          <img src="media/logo.svg" width="24" height="24" alt="Spenfly logo" style="display:inline-block;vertical-align:middle;margin-right:8px">
           spenfly
         </div>
         <p>Tu gestor de finanzas personales. Rápido, privado y con una interfaz que cuida cada detalle.</p>

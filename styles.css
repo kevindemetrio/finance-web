@@ -25,7 +25,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;background:rgba(253,251,247,0.8);backdrop-filter:blur(24px) saturate(1.6);-webkit-backdrop-filter:blur(24px) saturate(1.6);border-bottom:1px solid rgba(232,226,216,0.4);transition:all 0.3s}
 nav.scrolled{padding:10px 0;box-shadow:0 1px 16px rgba(0,0,0,0.04)}
 nav .container{display:flex;align-items:center;justify-content:space-between}
-.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:'Outfit',sans-serif;font-size:22px;font-weight:700;letter-spacing:-0.5px}
+.nav-brand{display:flex;align-items:center;gap:5px;text-decoration:none;font-family:'Outfit',sans-serif;font-size:22px;font-weight:700;letter-spacing:-0.5px}
 .brand-spen{color:var(--text)}
 .brand-fly{color:var(--green);margin-left:-1px}
 .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
