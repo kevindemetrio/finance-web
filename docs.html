@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documentación — Spenfly</title>
+<meta name="description" content="Guías, tutoriales y referencia completa para sacar el máximo partido a Spenfly.">
+<link rel="icon" type="image/svg+xml" href="media/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .page-hero{padding:120px 0 60px;border-bottom:1px solid var(--border)}
+  .page-hero .section-label{display:block;margin-bottom:12px}
+  .page-hero h1{font-size:clamp(32px,5vw,52px);font-weight:500;margin-bottom:24px}
+  .search-bar{display:flex;align-items:center;gap:12px;background:white;border:1.5px solid var(--border);border-radius:16px;padding:12px 18px;max-width:520px;box-shadow:0 2px 12px rgba(0,0,0,0.04)}
+  .search-bar svg{color:var(--text-muted);flex-shrink:0}
+  .search-bar input{flex:1;font-family:'Outfit',sans-serif;font-size:15px;color:var(--text);border:none;outline:none;background:transparent}
+  .search-bar input::placeholder{color:var(--text-muted)}
+
+  .docs-layout{display:grid;grid-template-columns:220px 1fr;gap:60px;max-width:1080px;margin:64px auto;padding:0 24px 100px;align-items:start}
+  @media(max-width:768px){.docs-layout{grid-template-columns:1fr}.docs-sidebar{display:none}}
+
+  .docs-sidebar{position:sticky;top:90px}
+  .sidebar-group{margin-bottom:28px}
+  .sidebar-group-title{font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;padding-left:10px}
+  .sidebar-link{display:block;font-size:14px;font-weight:500;color:var(--text-soft);text-decoration:none;padding:6px 10px;border-radius:8px;transition:all 0.2s;margin-bottom:1px}
+  .sidebar-link:hover{color:var(--green);background:var(--green-light)}
+  .sidebar-link.active{color:var(--green-dark);background:var(--green-light);font-weight:600}
+
+  .docs-main{}
+  .docs-section-label{font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:20px}
+
+  .guide-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:48px}
+  @media(max-width:580px){.guide-grid{grid-template-columns:1fr}}
+  .guide-card{background:white;border:1.5px solid var(--border);border-radius:16px;padding:20px;text-decoration:none;transition:all 0.25s cubic-bezier(0.23,1,0.32,1);display:flex;flex-direction:column;gap:8px}
+  .guide-card:hover{border-color:var(--green);box-shadow:0 4px 20px rgba(29,158,117,0.08);transform:translateY(-2px)}
+  .guide-card-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:4px}
+  .guide-card-icon.green{background:var(--green-light)}
+  .guide-card-icon.blue{background:var(--blue-light)}
+  .guide-card-icon.amber{background:var(--amber-light)}
+  .guide-card-icon.purple{background:#F3EFFE}
+  .guide-card h3{font-family:'Outfit',sans-serif;font-size:14px;font-weight:700;color:var(--text);line-height:1.3}
+  .guide-card p{font-size:13px;color:var(--text-muted);line-height:1.6;margin:0}
+  .guide-card .arrow{margin-top:auto;font-size:13px;font-weight:600;color:var(--green);display:flex;align-items:center;gap:4px}
+
+  .popular-list{display:flex;flex-direction:column;gap:0;border:1.5px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:48px}
+  .popular-item{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid var(--border);text-decoration:none;transition:background 0.2s}
+  .popular-item:last-child{border-bottom:none}
+  .popular-item:hover{background:var(--sand)}
+  .popular-item .title{font-size:14px;font-weight:500;color:var(--text)}
+  .popular-item .cat{font-size:11px;font-weight:700;padding:3px 9px;border-radius:6px;margin-right:12px;white-space:nowrap}
+  .cat-green{background:var(--green-light);color:var(--green-dark)}
+  .cat-blue{background:var(--blue-light);color:var(--blue)}
+  .cat-amber{background:var(--amber-light);color:var(--amber)}
+  .popular-item .chevron{color:var(--text-muted);flex-shrink:0}
+
+  .not-found-box{background:var(--sand);border:1.5px solid var(--border);border-radius:20px;padding:32px;display:flex;align-items:center;gap:24px}
+  @media(max-width:600px){.not-found-box{flex-direction:column;align-items:flex-start}}
+  .not-found-box .icon{width:48px;height:48px;border-radius:14px;background:white;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1.5px solid var(--border)}
+  .not-found-box h3{font-family:'Outfit',sans-serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px}
+  .not-found-box p{font-size:14px;color:var(--text-soft);margin:0 0 14px}
+  .not-found-box a{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--green);text-decoration:none}
+  .not-found-box a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="container">
+    <a href="index.html" class="nav-brand">
+      <img src="media/logo_horizontal.svg" alt="Spenfly" height="32" style="display:block;">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#features">Funciones</a></li>
+      <li><a href="index.html#pricing">Precios</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="index.html#contact">Contacto</a></li>
+    </ul>
+    <a href="https://app.spenfly.com/auth/login" target="_blank" class="btn btn-primary nav-cta nav-cta-desktop">Empezar gratis</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menú"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#features" onclick="closeMenu()">Funciones</a>
+    <a href="index.html#pricing" onclick="closeMenu()">Precios</a>
+    <a href="index.html#faq" onclick="closeMenu()">FAQ</a>
+    <a href="index.html#contact" onclick="closeMenu()">Contacto</a>
+    <a href="https://app.spenfly.com/auth/login" target="_blank" class="nav-cta" onclick="closeMenu()">Empezar gratis</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="section-label">Documentación</span>
+    <h1>¿Cómo podemos ayudarte?</h1>
+    <div class="search-bar">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" placeholder="Buscar en la documentación…" aria-label="Buscar">
+    </div>
+  </div>
+</section>
+
+<div class="docs-layout">
+
+  <aside class="docs-sidebar">
+    <div class="sidebar-group">
+      <div class="sidebar-group-title">Primeros pasos</div>
+      <a href="#" class="sidebar-link active">Introducción a Spenfly</a>
+      <a href="#" class="sidebar-link">Crear tu cuenta</a>
+      <a href="#" class="sidebar-link">Tour por el panel</a>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-group-title">Cuenta y perfil</div>
+      <a href="#" class="sidebar-link">Configurar tu perfil</a>
+      <a href="#" class="sidebar-link">Planes y suscripción</a>
+      <a href="#" class="sidebar-link">Eliminar cuenta</a>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-group-title">Transacciones</div>
+      <a href="#" class="sidebar-link">Añadir transacciones</a>
+      <a href="#" class="sidebar-link">Categorías personalizadas</a>
+      <a href="#" class="sidebar-link">Transacciones recurrentes</a>
+      <a href="#" class="sidebar-link">Importar desde CSV</a>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-group-title">Presupuestos</div>
+      <a href="#" class="sidebar-link">Crear un presupuesto</a>
+      <a href="#" class="sidebar-link">Presupuesto por categoría</a>
+      <a href="#" class="sidebar-link">Alertas de gasto</a>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-group-title">Informes PDF</div>
+      <a href="#" class="sidebar-link">Generar un informe</a>
+      <a href="#" class="sidebar-link">Personalizar el informe</a>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-group-title">Integraciones</div>
+      <a href="#" class="sidebar-link">Visión general</a>
+      <a href="#" class="sidebar-link">Exportar datos</a>
+    </div>
+    <div class="sidebar-group">
+      <div class="sidebar-group-title">Seguridad y privacidad</div>
+      <a href="#" class="sidebar-link">Cómo protegemos tus datos</a>
+      <a href="#" class="sidebar-link">Autenticación en dos pasos</a>
+      <a href="privacidad.html" class="sidebar-link">Política de privacidad</a>
+    </div>
+  </aside>
+
+  <main class="docs-main">
+
+    <p class="docs-section-label">Guías destacadas</p>
+    <div class="guide-grid">
+      <a href="#" class="guide-card">
+        <div class="guide-card-icon green">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3>Empieza en 5 minutos</h3>
+        <p>Crea tu cuenta, añade tus primeras transacciones y configura tu presupuesto mensual.</p>
+        <div class="arrow">Leer guía <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+      <a href="#" class="guide-card">
+        <div class="guide-card-icon blue">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3>Entender el panel principal</h3>
+        <p>Aprende a leer tus métricas mensuales, gráficos de evolución y el resumen de categorías.</p>
+        <div class="arrow">Leer guía <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+      <a href="#" class="guide-card">
+        <div class="guide-card-icon amber">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3>Presupuestos por categoría</h3>
+        <p>Asigna límites de gasto a cada categoría y recibe alertas cuando te acerques al tope.</p>
+        <div class="arrow">Leer guía <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+      <a href="#" class="guide-card">
+        <div class="guide-card-icon purple">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <h3>Exportar informe PDF</h3>
+        <p>Genera un informe mensual detallado con gráficos directamente desde tu navegador, sin servidores.</p>
+        <div class="arrow">Leer guía <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+    </div>
+
+    <p class="docs-section-label">Artículos más consultados</p>
+    <div class="popular-list">
+      <a href="#" class="popular-item">
+        <div style="display:flex;align-items:center;flex:1;min-width:0">
+          <span class="cat cat-green">Transacciones</span>
+          <span class="title">Cómo importar transacciones desde un archivo CSV</span>
+        </div>
+        <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+      <a href="#" class="popular-item">
+        <div style="display:flex;align-items:center;flex:1;min-width:0">
+          <span class="cat cat-blue">Cuenta</span>
+          <span class="title">Cambiar de plan Basic a Pro</span>
+        </div>
+        <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+      <a href="#" class="popular-item">
+        <div style="display:flex;align-items:center;flex:1;min-width:0">
+          <span class="cat cat-green">Presupuestos</span>
+          <span class="title">Configurar alertas de gasto por categoría</span>
+        </div>
+        <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+      <a href="#" class="popular-item">
+        <div style="display:flex;align-items:center;flex:1;min-width:0">
+          <span class="cat cat-amber">Seguridad</span>
+          <span class="title">Activar autenticación en dos pasos (2FA)</span>
+        </div>
+        <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+      <a href="#" class="popular-item">
+        <div style="display:flex;align-items:center;flex:1;min-width:0">
+          <span class="cat cat-blue">Cuenta</span>
+          <span class="title">Exportar o eliminar todos mis datos</span>
+        </div>
+        <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+      <a href="#" class="popular-item">
+        <div style="display:flex;align-items:center;flex:1;min-width:0">
+          <span class="cat cat-green">Transacciones</span>
+          <span class="title">Crear y gestionar categorías personalizadas</span>
+        </div>
+        <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+
+    <div class="not-found-box">
+      <div class="icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--text-soft)" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <div>
+        <h3>¿No encuentras lo que buscas?</h3>
+        <p>Nuestro equipo responde en menos de 24 horas. Cuéntanos tu duda y te ayudamos.</p>
+        <a href="index.html#contact">Contactar con soporte <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="media/logo_horizontal.svg" alt="Spenfly" height="28" style="display:block;filter:brightness(0) invert(1);">
+        </div>
+        <p>Tu gestor de finanzas personales. Rápido, privado y con una interfaz que cuida cada detalle.</p>
+      </div>
+      <div><h4>Recursos</h4><ul><li><a href="docs.html">Documentación</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="blog.html">Blog</a></li><li><a href="status.html">Estado del servicio</a></li></ul></div>
+      <div><h4>Legal</h4><ul><li><a href="terminos.html">Términos de uso</a></li><li><a href="privacidad.html">Política de privacidad</a></li><li><a href="cookies.html">Cookies</a></li><li><a href="index.html#contact">Contacto</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Spenfly. Todos los derechos reservados.</span></div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('navbar');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40));
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
+function closeMenu(){document.getElementById('mobileMenu').classList.remove('open')}
+</script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estado del servicio — Spenfly</title>
+<meta name="description" content="Estado en tiempo real de todos los sistemas de Spenfly. Consulta la disponibilidad de la app, API, autenticación y más.">
+<link rel="icon" type="image/svg+xml" href="media/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .page-hero{padding:120px 0 60px;border-bottom:1px solid var(--border)}
+  .page-hero .section-label{display:block;margin-bottom:12px}
+  .page-hero h1{font-size:clamp(32px,5vw,52px);font-weight:500;margin-bottom:20px}
+  .hero-status-badge{display:inline-flex;align-items:center;gap:8px;background:#E6FAF2;color:#0F6E56;font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;padding:8px 18px;border-radius:100px;border:1.5px solid rgba(29,158,117,0.2)}
+  .status-dot{width:9px;height:9px;border-radius:50%;background:#1D9E75;box-shadow:0 0 0 3px rgba(29,158,117,0.25);animation:pulse-green 2s ease-in-out infinite}
+  @keyframes pulse-green{0%,100%{box-shadow:0 0 0 3px rgba(29,158,117,0.25)}50%{box-shadow:0 0 0 6px rgba(29,158,117,0.1)}}
+
+  .status-body{max-width:760px;margin:64px auto;padding:0 24px 100px}
+
+  .status-section-title{font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px}
+
+  .service-list{background:white;border:1.5px solid var(--border);border-radius:20px;overflow:hidden;margin-bottom:40px}
+  .service-item{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid var(--border)}
+  .service-item:last-child{border-bottom:none}
+  .service-info{display:flex;align-items:center;gap:14px}
+  .service-icon{width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .service-icon.green{background:var(--green-light)}
+  .service-icon.blue{background:var(--blue-light)}
+  .service-name{font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;color:var(--text)}
+  .service-desc{font-size:13px;color:var(--text-muted);margin-top:2px}
+  .service-status{display:flex;align-items:center;gap:7px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;color:#0F6E56;background:#E6FAF2;padding:6px 14px;border-radius:100px;border:1px solid rgba(29,158,117,0.15)}
+  .service-status .dot{width:7px;height:7px;border-radius:50%;background:#1D9E75}
+
+  .uptime-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:40px}
+  @media(max-width:600px){.uptime-grid{grid-template-columns:1fr}}
+  .uptime-card{background:white;border:1.5px solid var(--border);border-radius:16px;padding:20px 22px}
+  .uptime-card .name{font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px}
+  .uptime-card .pct{font-family:'Fraunces',serif;font-size:28px;font-weight:500;color:var(--green);margin-bottom:4px}
+  .uptime-card .period{font-size:12px;color:var(--text-muted)}
+  .uptime-bar{display:flex;gap:2px;margin-top:12px}
+  .uptime-bar span{flex:1;height:5px;border-radius:2px;background:var(--green);opacity:0.7}
+  .uptime-bar span.down{background:var(--red);opacity:0.6}
+
+  .incident-list{display:flex;flex-direction:column;gap:0;border:1.5px solid var(--border);border-radius:20px;overflow:hidden;margin-bottom:40px}
+  .incident-item{padding:20px 24px;border-bottom:1px solid var(--border);display:flex;gap:18px}
+  .incident-item:last-child{border-bottom:none}
+  .incident-date-col{min-width:90px;padding-top:2px}
+  .incident-date{font-size:12px;font-weight:600;color:var(--text-muted);font-family:'Outfit',sans-serif}
+  .incident-badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:6px;margin-top:6px}
+  .badge-resolved{background:#E6FAF2;color:#0F6E56}
+  .badge-degraded{background:var(--amber-light);color:var(--amber)}
+  .incident-content .title{font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px}
+  .incident-content p{font-size:13px;line-height:1.7;color:var(--text-soft);margin:0}
+  .incident-empty{padding:32px 24px;text-align:center;color:var(--text-muted);font-size:14px}
+
+  .subscribe-box{background:var(--green-light);border:1.5px solid rgba(29,158,117,0.2);border-radius:20px;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+  @media(max-width:600px){.subscribe-box{flex-direction:column;align-items:flex-start}}
+  .subscribe-box .text h3{font-size:17px;font-weight:600;color:var(--text);margin-bottom:4px;font-family:'Outfit',sans-serif}
+  .subscribe-box .text p{font-size:14px;color:var(--text-soft);margin:0}
+  .subscribe-form{display:flex;gap:10px;flex-shrink:0}
+  @media(max-width:600px){.subscribe-form{width:100%}}
+  .subscribe-form input{font-family:'Outfit',sans-serif;font-size:14px;padding:10px 16px;border:1.5px solid var(--border);border-radius:12px;background:white;color:var(--text);outline:none;width:220px}
+  @media(max-width:600px){.subscribe-form input{width:100%;flex:1}}
+  .subscribe-form input:focus{border-color:var(--green)}
+  .subscribe-form button{font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;padding:10px 20px;background:var(--green);color:white;border:none;border-radius:12px;cursor:pointer;white-space:nowrap;transition:background 0.2s}
+  .subscribe-form button:hover{background:var(--green-dark)}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="container">
+    <a href="index.html" class="nav-brand">
+      <img src="media/logo_horizontal.svg" alt="Spenfly" height="32" style="display:block;">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#features">Funciones</a></li>
+      <li><a href="index.html#pricing">Precios</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="index.html#contact">Contacto</a></li>
+    </ul>
+    <a href="https://app.spenfly.com/auth/login" target="_blank" class="btn btn-primary nav-cta nav-cta-desktop">Empezar gratis</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menú"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#features" onclick="closeMenu()">Funciones</a>
+    <a href="index.html#pricing" onclick="closeMenu()">Precios</a>
+    <a href="index.html#faq" onclick="closeMenu()">FAQ</a>
+    <a href="index.html#contact" onclick="closeMenu()">Contacto</a>
+    <a href="https://app.spenfly.com/auth/login" target="_blank" class="nav-cta" onclick="closeMenu()">Empezar gratis</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="section-label">Estado</span>
+    <h1>Estado del servicio</h1>
+    <div class="hero-status-badge">
+      <span class="status-dot"></span>
+      Todos los sistemas operativos
+    </div>
+  </div>
+</section>
+
+<div class="status-body">
+
+  <p class="status-section-title">Servicios</p>
+  <div class="service-list">
+    <div class="service-item">
+      <div class="service-info">
+        <div class="service-icon green">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div>
+          <div class="service-name">App web</div>
+          <div class="service-desc">app.spenfly.com — Panel principal, transacciones, presupuestos</div>
+        </div>
+      </div>
+      <div class="service-status"><span class="dot"></span> Operativo</div>
+    </div>
+    <div class="service-item">
+      <div class="service-info">
+        <div class="service-icon blue">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div>
+          <div class="service-name">API</div>
+          <div class="service-desc">api.spenfly.com — Endpoints de datos e integraciones</div>
+        </div>
+      </div>
+      <div class="service-status"><span class="dot"></span> Operativo</div>
+    </div>
+    <div class="service-item">
+      <div class="service-info">
+        <div class="service-icon green">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <div class="service-name">Autenticación</div>
+          <div class="service-desc">Inicio de sesión, registro y gestión de tokens</div>
+        </div>
+      </div>
+      <div class="service-status"><span class="dot"></span> Operativo</div>
+    </div>
+    <div class="service-item">
+      <div class="service-info">
+        <div class="service-icon blue">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        </div>
+        <div>
+          <div class="service-name">Base de datos</div>
+          <div class="service-desc">Almacenamiento y consultas — Supabase (EU-West)</div>
+        </div>
+      </div>
+      <div class="service-status"><span class="dot"></span> Operativo</div>
+    </div>
+    <div class="service-item">
+      <div class="service-info">
+        <div class="service-icon green">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        </div>
+        <div>
+          <div class="service-name">Notificaciones</div>
+          <div class="service-desc">Alertas de presupuesto y resúmenes por email</div>
+        </div>
+      </div>
+      <div class="service-status"><span class="dot"></span> Operativo</div>
+    </div>
+  </div>
+
+  <p class="status-section-title">Disponibilidad — últimos 90 días</p>
+  <div class="uptime-grid">
+    <div class="uptime-card">
+      <div class="name">App web</div>
+      <div class="pct">99.98%</div>
+      <div class="period">Últimos 90 días</div>
+      <div class="uptime-bar">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="down"></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="uptime-card">
+      <div class="name">API</div>
+      <div class="pct">99.97%</div>
+      <div class="period">Últimos 90 días</div>
+      <div class="uptime-bar">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="down"></span><span></span>
+      </div>
+    </div>
+    <div class="uptime-card">
+      <div class="name">Autenticación</div>
+      <div class="pct">100%</div>
+      <div class="period">Últimos 90 días</div>
+      <div class="uptime-bar">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="uptime-card">
+      <div class="name">Base de datos</div>
+      <div class="pct">99.99%</div>
+      <div class="period">Últimos 90 días</div>
+      <div class="uptime-bar">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+
+  <p class="status-section-title">Incidencias recientes — últimos 30 días</p>
+  <div class="incident-list">
+    <div class="incident-item">
+      <div class="incident-date-col">
+        <div class="incident-date">28 mar 2026</div>
+        <span class="incident-badge badge-resolved">Resuelto</span>
+      </div>
+      <div class="incident-content">
+        <div class="title">Latencia elevada en carga de transacciones</div>
+        <p>Durante aproximadamente 18 minutos (11:42–12:00 UTC) algunos usuarios experimentaron tiempos de carga superiores a los habituales al acceder al listado de transacciones. La causa fue una consulta sin índice óptimo introducida en el despliegue v1.3.2. Se aplicó un índice de cobertura y la latencia volvió a niveles normales. No hubo pérdida de datos.</p>
+      </div>
+    </div>
+    <div class="incident-item">
+      <div class="incident-date-col">
+        <div class="incident-date">14 mar 2026</div>
+        <span class="incident-badge badge-resolved">Resuelto</span>
+      </div>
+      <div class="incident-content">
+        <div class="title">Retraso en entrega de emails de resumen semanal</div>
+        <p>Los correos de resumen semanal del domingo 14 de marzo se enviaron con un retraso de 2 horas y 15 minutos respecto al horario habitual (08:00 UTC). El problema fue un worker de colas caído en el proveedor de email. Se reinició el proceso y todos los mensajes fueron entregados correctamente.</p>
+      </div>
+    </div>
+    <div class="incident-item">
+      <div class="incident-date-col">
+        <div class="incident-date">3 mar 2026</div>
+        <span class="incident-badge badge-resolved">Resuelto</span>
+      </div>
+      <div class="incident-content">
+        <div class="title">Error 500 intermitente al exportar informes PDF</div>
+        <p>Un subconjunto de usuarios con más de 500 transacciones en el mes recibía error 500 al generar informes PDF. El problema era un timeout en el proceso de renderizado client-side cuando el volumen de datos era muy elevado. Se optimizó la paginación del informe y se aumentó el límite de timeout. Resuelto a las 16:30 UTC.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="subscribe-box">
+    <div class="text">
+      <h3>Recibe actualizaciones de estado</h3>
+      <p>Te notificamos por email ante cualquier incidencia o mantenimiento programado.</p>
+    </div>
+    <form class="subscribe-form" onsubmit="return false;">
+      <input type="email" placeholder="tu@email.com" autocomplete="email">
+      <button type="submit">Suscribirse</button>
+    </form>
+  </div>
+
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="media/logo_horizontal.svg" alt="Spenfly" height="28" style="display:block;filter:brightness(0) invert(1);">
+        </div>
+        <p>Tu gestor de finanzas personales. Rápido, privado y con una interfaz que cuida cada detalle.</p>
+      </div>
+      <div><h4>Recursos</h4><ul><li><a href="docs.html">Documentación</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="blog.html">Blog</a></li><li><a href="status.html">Estado del servicio</a></li></ul></div>
+      <div><h4>Legal</h4><ul><li><a href="terminos.html">Términos de uso</a></li><li><a href="privacidad.html">Política de privacidad</a></li><li><a href="cookies.html">Cookies</a></li><li><a href="index.html#contact">Contacto</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Spenfly. Todos los derechos reservados.</span></div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('navbar');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40));
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
+function closeMenu(){document.getElementById('mobileMenu').classList.remove('open')}
+</script>
+</body>
+</html>

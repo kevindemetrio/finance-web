@@ -1,0 +1,21 @@
+<svg width="480" height="120" viewBox="0 0 480 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Icono cuadrado redondeado -->
+  <rect x="0" y="0" width="120" height="120" rx="22" fill="#1D9E75"/>
+
+  <!-- Avión de papel centrado en 60,60 -->
+  <polygon points="18,80 96,44 76,96" fill="white"/>
+  <polygon points="18,80 76,96 72,62" fill="black" opacity="0.20"/>
+  <polygon points="18,80 96,44 72,62" fill="white" opacity="0.40"/>
+
+  <!-- Wordmark "spenfly" a la derecha del icono -->
+  <text
+    x="144"
+    y="88"
+    font-family="'Arial Black', 'Arial Bold', Impact, sans-serif"
+    font-size="72"
+    font-weight="900"
+    letter-spacing="-2"
+  ><tspan fill="#1A1A1A">spen</tspan><tspan fill="#1D9E75">fly</tspan></text>
+
+</svg>

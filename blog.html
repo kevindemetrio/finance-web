@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Spenfly</title>
+<meta name="description" content="Consejos prácticos, novedades del producto y reflexiones sobre finanzas personales del equipo de Spenfly.">
+<link rel="icon" type="image/svg+xml" href="media/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .page-hero{padding:120px 0 60px;border-bottom:1px solid var(--border)}
+  .page-hero .section-label{display:block;margin-bottom:12px}
+  .page-hero h1{font-size:clamp(32px,5vw,52px);font-weight:500;margin-bottom:12px}
+  .page-hero .subtitle{font-size:17px;color:var(--text-soft);max-width:520px;line-height:1.65}
+
+  .blog-body{max-width:1080px;margin:64px auto;padding:0 24px 100px}
+
+  .filter-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:48px}
+  .filter-btn{font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;padding:8px 18px;border-radius:100px;border:1.5px solid var(--border);background:white;color:var(--text-soft);cursor:pointer;text-decoration:none;transition:all 0.2s}
+  .filter-btn:hover{border-color:var(--green);color:var(--green-dark)}
+  .filter-btn.active{background:var(--green);color:white;border-color:var(--green)}
+
+  .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-bottom:60px}
+  @media(max-width:900px){.blog-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.blog-grid{grid-template-columns:1fr}}
+
+  .blog-card{background:white;border:1.5px solid var(--border);border-radius:20px;overflow:hidden;text-decoration:none;transition:all 0.3s cubic-bezier(0.23,1,0.32,1);display:flex;flex-direction:column}
+  .blog-card:hover{border-color:var(--green);box-shadow:0 8px 32px rgba(29,158,117,0.08);transform:translateY(-3px)}
+  .blog-card.featured{grid-column:span 2}
+  @media(max-width:900px){.blog-card.featured{grid-column:span 1}}
+
+  .blog-card-thumb{height:180px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .blog-card.featured .blog-card-thumb{height:220px}
+  .blog-card-thumb svg{opacity:0.18}
+
+  .thumb-green{background:linear-gradient(135deg,#C8F0E0 0%,#E6FAF2 100%)}
+  .thumb-blue{background:linear-gradient(135deg,#C5DDF7 0%,#E6F1FB 100%)}
+  .thumb-amber{background:linear-gradient(135deg,#F5D9A0 0%,#FAEEDA 100%)}
+  .thumb-purple{background:linear-gradient(135deg,#DDD6FE 0%,#F3EFFE 100%)}
+  .thumb-sand{background:linear-gradient(135deg,#EAE3D2 0%,#F5F0E8 100%)}
+  .thumb-red{background:linear-gradient(135deg,#F9BDBD 0%,#FCEBEB 100%)}
+
+  .blog-card-body{padding:20px 22px;display:flex;flex-direction:column;flex:1}
+  .blog-card-cat{display:inline-block;font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;padding:3px 10px;border-radius:6px;margin-bottom:10px;letter-spacing:0.03em}
+  .cat-finanzas{background:var(--green-light);color:var(--green-dark)}
+  .cat-producto{background:var(--blue-light);color:var(--blue)}
+  .cat-consejos{background:var(--amber-light);color:var(--amber)}
+  .cat-novedades{background:#F3EFFE;color:#7C3AED}
+
+  .blog-card-title{font-family:'Fraunces',serif;font-size:18px;font-weight:500;color:var(--text);line-height:1.35;margin-bottom:10px}
+  .blog-card.featured .blog-card-title{font-size:22px}
+  .blog-card-excerpt{font-size:14px;color:var(--text-soft);line-height:1.7;margin-bottom:16px;flex:1}
+  .blog-card-meta{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--text-muted);margin-top:auto;padding-top:14px;border-top:1px solid var(--border)}
+  .blog-card-meta .read-time{display:flex;align-items:center;gap:5px}
+
+  .blog-cta{background:var(--sand);border:1.5px solid var(--border);border-radius:20px;padding:40px;text-align:center}
+  .blog-cta h3{font-family:'Fraunces',serif;font-size:26px;font-weight:500;color:var(--text);margin-bottom:10px}
+  .blog-cta p{font-size:15px;color:var(--text-soft);max-width:440px;margin:0 auto 24px;line-height:1.7}
+  .newsletter-form{display:flex;gap:10px;max-width:400px;margin:0 auto}
+  @media(max-width:500px){.newsletter-form{flex-direction:column}}
+  .newsletter-form input{flex:1;font-family:'Outfit',sans-serif;font-size:14px;padding:12px 16px;border:1.5px solid var(--border);border-radius:12px;background:white;color:var(--text);outline:none}
+  .newsletter-form input:focus{border-color:var(--green)}
+  .newsletter-form button{font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;padding:12px 22px;background:var(--green);color:white;border:none;border-radius:12px;cursor:pointer;white-space:nowrap;transition:background 0.2s}
+  .newsletter-form button:hover{background:var(--green-dark)}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="container">
+    <a href="index.html" class="nav-brand">
+      <img src="media/logo_horizontal.svg" alt="Spenfly" height="32" style="display:block;">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#features">Funciones</a></li>
+      <li><a href="index.html#pricing">Precios</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="index.html#contact">Contacto</a></li>
+    </ul>
+    <a href="https://app.spenfly.com/auth/login" target="_blank" class="btn btn-primary nav-cta nav-cta-desktop">Empezar gratis</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menú"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#features" onclick="closeMenu()">Funciones</a>
+    <a href="index.html#pricing" onclick="closeMenu()">Precios</a>
+    <a href="index.html#faq" onclick="closeMenu()">FAQ</a>
+    <a href="index.html#contact" onclick="closeMenu()">Contacto</a>
+    <a href="https://app.spenfly.com/auth/login" target="_blank" class="nav-cta" onclick="closeMenu()">Empezar gratis</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="section-label">Blog</span>
+    <h1>Ideas sobre dinero y producto</h1>
+    <p class="subtitle">Consejos, novedades y reflexiones sobre finanzas personales del equipo de Spenfly.</p>
+  </div>
+</section>
+
+<div class="blog-body">
+
+  <div class="filter-bar">
+    <a href="#" class="filter-btn active">Todo</a>
+    <a href="#" class="filter-btn">Finanzas personales</a>
+    <a href="#" class="filter-btn">Producto</a>
+    <a href="#" class="filter-btn">Consejos</a>
+    <a href="#" class="filter-btn">Novedades</a>
+  </div>
+
+  <div class="blog-grid">
+
+    <!-- Artículo destacado -->
+    <a href="#" class="blog-card featured">
+      <div class="blog-card-thumb thumb-green">
+        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-cat cat-finanzas">Finanzas personales</span>
+        <div class="blog-card-title">Cómo crear un presupuesto que realmente funcione (y no abandones en febrero)</div>
+        <div class="blog-card-excerpt">La mayoría de los presupuestos fracasan por ser demasiado rígidos o demasiado optimistas. Te explicamos el método que usa el equipo de Spenfly, basado en porcentajes y revisiones mensuales, para construir un presupuesto sostenible a largo plazo.</div>
+        <div class="blog-card-meta">
+          <span>12 de abril, 2026</span>
+          <span class="read-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 8 min</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Artículo 2 -->
+    <a href="#" class="blog-card">
+      <div class="blog-card-thumb thumb-blue">
+        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-cat cat-producto">Producto</span>
+        <div class="blog-card-title">Novedades de abril en Spenfly: inversiones y metas renovadas</div>
+        <div class="blog-card-excerpt">La v1.4.0 llega con el módulo de inversiones para Pro y el rediseño completo de metas de ahorro. Te contamos cómo usarlos.</div>
+        <div class="blog-card-meta">
+          <span>5 de abril, 2026</span>
+          <span class="read-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Artículo 3 -->
+    <a href="#" class="blog-card">
+      <div class="blog-card-thumb thumb-amber">
+        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="1.2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-cat cat-consejos">Consejos</span>
+        <div class="blog-card-title">La regla del 50/30/20: por qué funciona y cómo adaptarla a tu situación</div>
+        <div class="blog-card-excerpt">El clásico método de división del salario sigue siendo válido, pero tiene matices importantes que casi nadie menciona cuando vive en una ciudad cara.</div>
+        <div class="blog-card-meta">
+          <span>28 de marzo, 2026</span>
+          <span class="read-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 6 min</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Artículo 4 -->
+    <a href="#" class="blog-card">
+      <div class="blog-card-thumb thumb-purple">
+        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-cat cat-novedades">Novedades</span>
+        <div class="blog-card-title">Tus informes financieros en PDF, generados sin salir del navegador</div>
+        <div class="blog-card-excerpt">Con la exportación PDF de Spenfly, ningún dato tuyo viaja a ningún servidor. Explicamos cómo funciona la tecnología detrás de esto.</div>
+        <div class="blog-card-meta">
+          <span>18 de marzo, 2026</span>
+          <span class="read-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Artículo 5 -->
+    <a href="#" class="blog-card">
+      <div class="blog-card-thumb thumb-sand">
+        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7"/></svg>
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-cat cat-consejos">Consejos</span>
+        <div class="blog-card-title">Cómo hablar de dinero en pareja sin que acabe en discusión</div>
+        <div class="blog-card-excerpt">Las finanzas compartidas son uno de los mayores focos de conflicto en las relaciones. Aquí tienes un framework para tener esas conversaciones con datos y sin drama.</div>
+        <div class="blog-card-meta">
+          <span>10 de marzo, 2026</span>
+          <span class="read-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 7 min</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Artículo 6 -->
+    <a href="#" class="blog-card">
+      <div class="blog-card-thumb thumb-red">
+        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-cat cat-finanzas">Finanzas personales</span>
+        <div class="blog-card-title">5 señales de que tu relación con el dinero necesita un reset</div>
+        <div class="blog-card-excerpt">No siempre es falta de ingresos: a veces el problema está en los hábitos y en cómo procesamos el gasto emocionalmente. Detecta las señales a tiempo.</div>
+        <div class="blog-card-meta">
+          <span>24 de febrero, 2026</span>
+          <span class="read-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 5 min</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Artículo 7 -->
+    <a href="#" class="blog-card">
+      <div class="blog-card-thumb thumb-green">
+        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-cat cat-consejos">Consejos</span>
+        <div class="blog-card-title">Fondo de emergencia: cuánto necesitas y dónde guardarlo</div>
+        <div class="blog-card-excerpt">La respuesta estándar es "3 a 6 meses de gastos", pero el número correcto depende de tu situación laboral, familiar y de riesgo. Calcula el tuyo.</div>
+        <div class="blog-card-meta">
+          <span>14 de febrero, 2026</span>
+          <span class="read-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 6 min</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Artículo 8 -->
+    <a href="#" class="blog-card">
+      <div class="blog-card-thumb thumb-blue">
+        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-cat cat-producto">Producto</span>
+        <div class="blog-card-title">Cómo construimos Spenfly priorizando la privacidad desde el primer día</div>
+        <div class="blog-card-excerpt">Un vistazo técnico a las decisiones de arquitectura que tomamos para que tus datos financieros nunca sean el producto: RLS, client-side PDF y más.</div>
+        <div class="blog-card-meta">
+          <span>3 de febrero, 2026</span>
+          <span class="read-time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 9 min</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="blog-cta">
+    <h3>Recibe los artículos en tu email</h3>
+    <p>Sin spam. Un email cuando publicamos algo que merece la pena leer — normalmente una o dos veces al mes.</p>
+    <form class="newsletter-form" onsubmit="return false;">
+      <input type="email" placeholder="tu@email.com" autocomplete="email">
+      <button type="submit">Suscribirme</button>
+    </form>
+  </div>
+
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="media/logo_horizontal.svg" alt="Spenfly" height="28" style="display:block;filter:brightness(0) invert(1);">
+        </div>
+        <p>Tu gestor de finanzas personales. Rápido, privado y con una interfaz que cuida cada detalle.</p>
+      </div>
+      <div><h4>Recursos</h4><ul><li><a href="docs.html">Documentación</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="blog.html">Blog</a></li><li><a href="status.html">Estado del servicio</a></li></ul></div>
+      <div><h4>Legal</h4><ul><li><a href="terminos.html">Términos de uso</a></li><li><a href="privacidad.html">Política de privacidad</a></li><li><a href="cookies.html">Cookies</a></li><li><a href="index.html#contact">Contacto</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Spenfly. Todos los derechos reservados.</span></div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('navbar');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40));
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
+function closeMenu(){document.getElementById('mobileMenu').classList.remove('open')}
+</script>
+</body>
+</html>

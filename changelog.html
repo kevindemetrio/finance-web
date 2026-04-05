@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Changelog — Spenfly</title>
+<meta name="description" content="Todas las actualizaciones, mejoras y correcciones de Spenfly. Mantente al día con cada nueva versión.">
+<link rel="icon" type="image/svg+xml" href="media/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .page-hero{padding:120px 0 60px;border-bottom:1px solid var(--border)}
+  .page-hero .section-label{display:block;margin-bottom:12px}
+  .page-hero h1{font-size:clamp(32px,5vw,52px);font-weight:500;margin-bottom:12px}
+  .page-hero .subtitle{font-size:17px;color:var(--text-soft);max-width:480px;line-height:1.65}
+
+  .changelog-body{max-width:760px;margin:72px auto;padding:0 24px 100px}
+
+  .version-entry{display:grid;grid-template-columns:140px 1fr;gap:32px;margin-bottom:56px;padding-bottom:56px;border-bottom:1px solid var(--border)}
+  .version-entry:last-of-type{border-bottom:none}
+  @media(max-width:600px){.version-entry{grid-template-columns:1fr;gap:12px}}
+
+  .version-meta{padding-top:4px}
+  .version-number{font-family:'Fraunces',serif;font-size:22px;font-weight:500;color:var(--text);margin-bottom:4px}
+  .version-date{font-size:13px;color:var(--text-muted);margin-bottom:12px}
+  .version-tags{display:flex;flex-direction:column;gap:5px}
+  @media(max-width:600px){.version-tags{flex-direction:row;flex-wrap:wrap}}
+
+  .tag{display:inline-block;font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;padding:3px 10px;border-radius:6px;letter-spacing:0.03em}
+  .tag-new{background:var(--green-light);color:var(--green-dark)}
+  .tag-improvement{background:var(--blue-light);color:var(--blue)}
+  .tag-fix{background:var(--amber-light);color:var(--amber)}
+  .tag-breaking{background:var(--red-light);color:var(--red)}
+
+  .version-content h2{font-family:'Outfit',sans-serif;font-size:18px;font-weight:700;color:var(--text);margin-bottom:14px}
+  .version-content p{font-size:15px;color:var(--text-soft);line-height:1.75;margin-bottom:16px}
+
+  .change-group{margin-bottom:20px}
+  .change-group-title{font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px}
+  .change-list{list-style:none;display:flex;flex-direction:column;gap:6px}
+  .change-list li{font-size:14px;line-height:1.65;color:var(--text-soft);padding-left:18px;position:relative}
+  .change-list li::before{content:'—';position:absolute;left:0;color:var(--green);font-weight:600}
+
+  .version-highlight{background:var(--green-light);border-left:3px solid var(--green);border-radius:0 12px 12px 0;padding:14px 18px;margin-bottom:18px}
+  .version-highlight p{margin:0;font-size:14px;color:var(--green-dark);font-weight:500;line-height:1.6}
+
+  .cta-banner{background:var(--text);border-radius:24px;padding:40px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+  @media(max-width:600px){.cta-banner{flex-direction:column;align-items:flex-start;padding:28px 24px}}
+  .cta-banner h3{font-family:'Fraunces',serif;font-size:22px;font-weight:500;color:white;margin-bottom:6px}
+  .cta-banner p{font-size:14px;color:rgba(255,255,255,0.6);margin:0}
+  .cta-banner-actions{display:flex;gap:12px;flex-shrink:0;flex-wrap:wrap}
+  .btn-dark-ghost{font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;padding:10px 20px;border-radius:12px;border:1.5px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.75);text-decoration:none;transition:all 0.2s;white-space:nowrap}
+  .btn-dark-ghost:hover{border-color:rgba(255,255,255,0.5);color:white}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="container">
+    <a href="index.html" class="nav-brand">
+      <img src="media/logo_horizontal.svg" alt="Spenfly" height="32" style="display:block;">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#features">Funciones</a></li>
+      <li><a href="index.html#pricing">Precios</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="index.html#contact">Contacto</a></li>
+    </ul>
+    <a href="https://app.spenfly.com/auth/login" target="_blank" class="btn btn-primary nav-cta nav-cta-desktop">Empezar gratis</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menú"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#features" onclick="closeMenu()">Funciones</a>
+    <a href="index.html#pricing" onclick="closeMenu()">Precios</a>
+    <a href="index.html#faq" onclick="closeMenu()">FAQ</a>
+    <a href="index.html#contact" onclick="closeMenu()">Contacto</a>
+    <a href="https://app.spenfly.com/auth/login" target="_blank" class="nav-cta" onclick="closeMenu()">Empezar gratis</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="section-label">Changelog</span>
+    <h1>Qué hay de nuevo</h1>
+    <p class="subtitle">Cada actualización, mejora y corrección documentada. Construimos Spenfly en público.</p>
+  </div>
+</section>
+
+<div class="changelog-body">
+
+  <!-- v1.4.0 -->
+  <div class="version-entry">
+    <div class="version-meta">
+      <div class="version-number">v1.4.0</div>
+      <div class="version-date">Abril 2026</div>
+      <div class="version-tags">
+        <span class="tag tag-new">Nuevo</span>
+        <span class="tag tag-improvement">Mejora</span>
+      </div>
+    </div>
+    <div class="version-content">
+      <h2>Metas de ahorro renovadas y nuevo panel de inversiones</h2>
+      <div class="version-highlight">
+        <p>Esta es la actualización más grande desde el lanzamiento. El módulo de metas de ahorro ha sido completamente rediseñado y se ha añadido un panel de inversiones para usuarios Pro.</p>
+      </div>
+      <div class="change-group">
+        <div class="change-group-title">Nuevo</div>
+        <ul class="change-list">
+          <li>Panel de inversiones (Plan Pro): seguimiento de cartera con múltiples activos, precio de entrada y rentabilidad acumulada</li>
+          <li>Metas de ahorro con fecha objetivo y proyección automática basada en tu ritmo de ahorro actual</li>
+          <li>Gráfico de progreso animado en el detalle de cada meta</li>
+          <li>Notificación por email cuando alcanzas el 50%, 75% y 100% de una meta</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <div class="change-group-title">Mejora</div>
+        <ul class="change-list">
+          <li>Rediseño completo de la pantalla de metas: más espacio, mejor lectura del progreso</li>
+          <li>El resumen mensual por email ahora incluye el estado de tus metas de ahorro</li>
+          <li>Mejor rendimiento al cargar el panel principal con muchas transacciones</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- v1.3.2 -->
+  <div class="version-entry">
+    <div class="version-meta">
+      <div class="version-number">v1.3.2</div>
+      <div class="version-date">Marzo 2026</div>
+      <div class="version-tags">
+        <span class="tag tag-fix">Fix</span>
+        <span class="tag tag-improvement">Mejora</span>
+      </div>
+    </div>
+    <div class="version-content">
+      <h2>Correcciones de rendimiento y mejoras en PDF</h2>
+      <div class="change-group">
+        <div class="change-group-title">Fix</div>
+        <ul class="change-list">
+          <li>Corregida la latencia elevada en la carga del listado de transacciones (índice de base de datos)</li>
+          <li>El informe PDF ya no lanza error 500 con más de 500 transacciones en el mes</li>
+          <li>Las transacciones recurrentes ya no se duplicaban al cambiar la zona horaria del navegador</li>
+          <li>El selector de mes en iOS Safari ahora responde correctamente al primer toque</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <div class="change-group-title">Mejora</div>
+        <ul class="change-list">
+          <li>El informe PDF incluye ahora un gráfico de barras con el gasto por categoría</li>
+          <li>Mejor contraste de colores en el modo de alto contraste del sistema operativo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- v1.3.0 -->
+  <div class="version-entry">
+    <div class="version-meta">
+      <div class="version-number">v1.3.0</div>
+      <div class="version-date">Febrero 2026</div>
+      <div class="version-tags">
+        <span class="tag tag-new">Nuevo</span>
+        <span class="tag tag-improvement">Mejora</span>
+        <span class="tag tag-fix">Fix</span>
+      </div>
+    </div>
+    <div class="version-content">
+      <h2>Presupuestos por categoría y alertas personalizables</h2>
+      <div class="change-group">
+        <div class="change-group-title">Nuevo</div>
+        <ul class="change-list">
+          <li>Presupuestos por categoría (Plan Pro): asigna límites individuales a cada categoría de gasto</li>
+          <li>Alertas de presupuesto configurables: notificación al 75% y al 100% del límite</li>
+          <li>Vista de calendario mensual para visualizar transacciones día a día</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <div class="change-group-title">Mejora</div>
+        <ul class="change-list">
+          <li>El campo de notas en transacciones ahora admite hasta 500 caracteres (antes 200)</li>
+          <li>Importación CSV: el asistente detecta automáticamente el separador (coma, punto y coma o tabulación)</li>
+          <li>Tiempo de carga inicial de la app reducido en un 38%</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <div class="change-group-title">Fix</div>
+        <ul class="change-list">
+          <li>Las categorías con emojis en el nombre ya no rompen la exportación CSV</li>
+          <li>El total del presupuesto global ya no contabilizaba transferencias entre cuentas propias</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- v1.2.1 -->
+  <div class="version-entry">
+    <div class="version-meta">
+      <div class="version-number">v1.2.1</div>
+      <div class="version-date">Enero 2026</div>
+      <div class="version-tags">
+        <span class="tag tag-fix">Fix</span>
+      </div>
+    </div>
+    <div class="version-content">
+      <h2>Parche de correcciones</h2>
+      <div class="change-group">
+        <div class="change-group-title">Fix</div>
+        <ul class="change-list">
+          <li>Corregido un error que impedía cerrar sesión en algunos dispositivos móviles con Safari 17</li>
+          <li>El gráfico de evolución mensual ya mostraba correctamente meses con cero transacciones</li>
+          <li>Las notificaciones de resumen semanal ahora se envían en el huso horario del usuario y no en UTC</li>
+          <li>Restaurado el botón de duplicar transacción que desapareció en v1.2.0</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- v1.2.0 -->
+  <div class="version-entry">
+    <div class="version-meta">
+      <div class="version-number">v1.2.0</div>
+      <div class="version-date">Diciembre 2025</div>
+      <div class="version-tags">
+        <span class="tag tag-new">Nuevo</span>
+        <span class="tag tag-improvement">Mejora</span>
+      </div>
+    </div>
+    <div class="version-content">
+      <h2>Exportación PDF y transacciones recurrentes</h2>
+      <div class="version-highlight">
+        <p>El lanzamiento de la exportación PDF client-side fue el más solicitado por la comunidad. Toda la generación ocurre en tu navegador — ningún dato sale de tu dispositivo.</p>
+      </div>
+      <div class="change-group">
+        <div class="change-group-title">Nuevo</div>
+        <ul class="change-list">
+          <li>Exportación de informes en PDF generada íntegramente en el navegador (sin envío de datos al servidor)</li>
+          <li>Transacciones recurrentes: define frecuencia (semanal, mensual, anual) y Spenfly las añade automáticamente</li>
+          <li>Categorías de ingresos: diferencia entre salario, freelance, inversiones y otros ingresos</li>
+        </ul>
+      </div>
+      <div class="change-group">
+        <div class="change-group-title">Mejora</div>
+        <ul class="change-list">
+          <li>Nuevo diseño del panel principal con métricas más destacadas y gráficos más legibles</li>
+          <li>Búsqueda de transacciones: ahora busca también en el campo de notas</li>
+          <li>La app es instalable como PWA en Android e iOS directamente desde el navegador</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-banner">
+    <div>
+      <h3>No te pierdas ninguna actualización</h3>
+      <p>Suscríbete al feed RSS o recibe cada versión directamente en tu email.</p>
+    </div>
+    <div class="cta-banner-actions">
+      <a href="#" class="btn-dark-ghost">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:-2px;margin-right:6px"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+        Feed RSS
+      </a>
+      <a href="index.html#contact" class="btn btn-primary" style="font-size:14px;padding:10px 20px">Suscribirse por email</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="media/logo_horizontal.svg" alt="Spenfly" height="28" style="display:block;filter:brightness(0) invert(1);">
+        </div>
+        <p>Tu gestor de finanzas personales. Rápido, privado y con una interfaz que cuida cada detalle.</p>
+      </div>
+      <div><h4>Recursos</h4><ul><li><a href="docs.html">Documentación</a></li><li><a href="changelog.html">Changelog</a></li><li><a href="blog.html">Blog</a></li><li><a href="status.html">Estado del servicio</a></li></ul></div>
+      <div><h4>Legal</h4><ul><li><a href="terminos.html">Términos de uso</a></li><li><a href="privacidad.html">Política de privacidad</a></li><li><a href="cookies.html">Cookies</a></li><li><a href="index.html#contact">Contacto</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Spenfly. Todos los derechos reservados.</span></div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('navbar');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40));
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
+function closeMenu(){document.getElementById('mobileMenu').classList.remove('open')}
+</script>
+</body>
+</html>
