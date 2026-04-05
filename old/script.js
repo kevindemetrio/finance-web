@@ -40,62 +40,12 @@ function toggleBilling(){
   famNote.textContent=isAnnual?'Hasta 3 miembros · 101,88 €/año':'Hasta 3 miembros · Facturación mensual';
 }
 
-// Form handler — envía el mensaje con Resend via /api/contact
-async function handleForm(btn) {
-  const form = btn.closest('.contact-form');
-
-  const inputs = form.querySelectorAll('input, textarea');
-  const [nombreEl, emailEl, asuntoEl, mensajeEl] = inputs;
-
-  const nombre  = nombreEl.value.trim();
-  const email   = emailEl.value.trim();
-  const asunto  = asuntoEl.value.trim();
-  const mensaje = mensajeEl.value.trim();
-
-  // Validación básica
-  if (!nombre || !email || !asunto || !mensaje) {
-    inputs.forEach(el => {
-      if (!el.value.trim()) {
-        el.style.borderColor = 'var(--red, #e53e3e)';
-        el.addEventListener('input', () => el.style.borderColor = '', { once: true });
-      }
-    });
-    return;
-  }
-
-  const orig = btn.innerHTML;
-  btn.disabled = true;
-  btn.innerHTML = '<span style="opacity:.7">Enviando…</span>';
-
-  try {
-    const res = await fetch('/api/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ nombre, email, asunto, mensaje }),
-    });
-
-    if (res.ok) {
-      btn.innerHTML = '✓ Mensaje enviado';
-      btn.style.background = 'var(--green-dark)';
-      // Limpiar campos
-      inputs.forEach(el => el.value = '');
-      setTimeout(() => {
-        btn.innerHTML = orig;
-        btn.style.background = '';
-        btn.disabled = false;
-      }, 3000);
-    } else {
-      throw new Error('Error del servidor');
-    }
-  } catch (err) {
-    btn.innerHTML = '✗ Error al enviar';
-    btn.style.background = 'var(--red, #e53e3e)';
-    setTimeout(() => {
-      btn.innerHTML = orig;
-      btn.style.background = '';
-      btn.disabled = false;
-    }, 3000);
-  }
+// Form handler
+function handleForm(btn){
+  const orig=btn.innerHTML;
+  btn.innerHTML='✓ Mensaje enviado';
+  btn.style.background='var(--green-dark)';
+  setTimeout(()=>{btn.innerHTML=orig;btn.style.background=''},2500);
 }
 
 // Budget bar animation
