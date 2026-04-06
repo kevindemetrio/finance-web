@@ -19,7 +19,7 @@ function toggleBilling(){
   const basicPrice=document.getElementById('basicPrice');
   const basicOld=document.getElementById('basicOld');
   const basicNote=document.getElementById('basicNote');
-  basicPrice.textContent=isAnnual?'2,99 €':'3,49 €';
+  basicPrice.textContent=isAnnual?'3,49 €':'3,99 €';
   basicOld.classList.toggle('show',isAnnual);
   basicNote.textContent=isAnnual?'35,88 €/año · Facturación anual':'Facturación mensual';
 
@@ -32,12 +32,12 @@ function toggleBilling(){
   proNote.textContent=isAnnual?'47,88 €/año · Facturación anual':'Facturación mensual';
 
   // Family pricing
-  const famPrice=document.getElementById('famPrice');
-  const famOld=document.getElementById('famOld');
-  const famNote=document.getElementById('famNote');
-  famPrice.textContent=isAnnual?'8,49 €':'9,99 €';
-  famOld.classList.toggle('show',isAnnual);
-  famNote.textContent=isAnnual?'Hasta 3 miembros · 101,88 €/año':'Hasta 3 miembros · Facturación mensual';
+  //const famPrice=document.getElementById('famPrice');
+  //const famOld=document.getElementById('famOld');
+  //const famNote=document.getElementById('famNote');
+  //famPrice.textContent=isAnnual?'109,99 €':'109,99 €';
+  //famOld.classList.toggle('show',isAnnual);
+  //famNote.textContent=isAnnual?'Hasta 3 miembros · 101,88 €/año':'Hasta 3 miembros · Facturación mensual';
 }
 
 // Form handler — envía el mensaje con Resend via /api/contact
